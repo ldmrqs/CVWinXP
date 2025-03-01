@@ -6,13 +6,14 @@ body {
     height: 100vh;
 }
 
+/* construção do monitor e tela*/
 .monitor {
-    width: 630px;  /* 12 polegadas * 96 pixels */
-    height: 490px; /* 9 polegadas * 96 pixels */
-    background: #ECE8D8; /* Simula a tela */
-    border: 0px solid gray; /* Moldura do CRT */
-    border-radius: 2% / 2%; /* Bordas levemente arredondadas */
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.6); /* Simula profundidade do vidro */
+    width: 630px;
+    height: 490px; 
+    background: #ECE8D8; 
+    border: 0px solid gray;
+    border-radius: 2% / 2%;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,7 +37,7 @@ body {
 
 }
 
-
+/*construção das scanlines no vidro pra dar efeito de crt*/
 .scanlines {
     position: absolute;
     width: 100%;
@@ -97,16 +98,16 @@ h3 {
     margin: 20px 0;
     padding: 10px;
 }
-
+/*continuando a construção do monitor e a base dele*/
 .continuacaomonitor {
     position: absolute;
-    width: 520px;  /* 12 polegadas * 96 pixels */
-    height: 70px; /* 9 polegadas * 96 pixels */
+    width: 520px;  
+    height: 70px; 
     bottom: -70px;
-    background: #ECE8D8; /* Simula a tela */
-    border: 0px solid gray; /* Moldura do CRT */
-    border-radius: 3px; /* Bordas levemente arredondadas */
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.6); /* Simula profundidade do vidro */
+    background: #ECE8D8; 
+    border: 0px solid gray;
+    border-radius: 3px;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -293,7 +294,7 @@ h3 {
     align-items: center;
     justify-content: center;
 }
-
+/*começo da construção do gabinete*/
 .gabinete {
     position: absolute;
     width: 800px;  /* 12 polegadas * 96 pixels */
