@@ -1,0 +1,115 @@
+.barradetarefas {
+    position: absolute;
+    bottom: 0px;
+    width: 510px;
+    height: 15px;
+    right: 0px;
+    background: linear-gradient(to bottom, #2a6fd4, #1e4e9d);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    overflow: hidden;
+}
+
+.botão-iniciar {
+    position: absolute;
+    width: 20px;
+    height: 5px;
+    left: -2px;
+    background: linear-gradient(to bottom, #3b8df2, #1e4e9d);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    background: url("botaoiniciar.png");
+    background-size: cover;
+}
+
+.relógio {
+    color: white;
+    font-family: 'Segoe UI', Tahoma;
+}
+
+.internet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    padding: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+.internet img {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    right: 30px;
+}
+
+.internet span {
+    font-size: 5px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    text-shadow: 1px 1px 2px black;
+    position: relative;
+    right: 30px;
+}
+.winamp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    padding: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+.lixeira img {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    right: 30px;
+}
+
+.lixeira span {
+    font-size: 5px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    text-shadow: 1px 1px 2px black;
+    position: relative;
+    right: 30px;
+}
+
+.lixeira {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    padding: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+.lixeira img {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    right: 30px;
+}
+
+.lixeira span {
+    font-size: 5px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    text-shadow: 1px 1px 2px black;
+    position: relative;
+    right: 30px;
+}

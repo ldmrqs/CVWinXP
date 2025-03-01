@@ -1,0 +1,420 @@
+body {
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 100vh;
+}
+
+.monitor {
+    width: 630px;  /* 12 polegadas * 96 pixels */
+    height: 490px; /* 9 polegadas * 96 pixels */
+    background: #ECE8D8; /* Simula a tela */
+    border: 0px solid gray; /* Moldura do CRT */
+    border-radius: 2% / 2%; /* Bordas levemente arredondadas */
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.6); /* Simula profundidade do vidro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.tela {
+    width: 530px;
+    height: 390px;
+    background: gainsboro;
+    border: 5px solid #231f20;
+    position: relative;
+    border-radius: 2% / 2%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: url("https://cdn.editorji.com/66fa8edc964fa_linkin-park-1.jpeg") no-repeat center center;
+    background-size: cover;
+
+}
+
+
+.scanlines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.1) 0px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(0, 0, 0, 0) 4px
+    );
+    animation: scanlines 0.05s linear infinite;
+}
+
+@keyframes scanlines {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 0 4px;
+    }
+}
+
+.rolling-scanline {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    top: -10px;
+    animation: rolling-scanline-move 2s linear infinite;
+}
+@keyframes rolling-scanline-move {
+    from {
+        top: -10px;
+    }
+    to {
+        top: 100%;
+    }
+}
+
+
+.vidro {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+
+}
+
+h3 {
+    position: relative;
+    top: -70px;
+    right: 158px;
+    font-size: 24px;
+    color: #4169E1;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 20px 0;
+    padding: 10px;
+}
+
+.continuacaomonitor {
+    position: absolute;
+    width: 520px;  /* 12 polegadas * 96 pixels */
+    height: 70px; /* 9 polegadas * 96 pixels */
+    bottom: -70px;
+    background: #ECE8D8; /* Simula a tela */
+    border: 0px solid gray; /* Moldura do CRT */
+    border-radius: 3px; /* Bordas levemente arredondadas */
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.6); /* Simula profundidade do vidro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botaopower {
+    cursor: pointer;
+    position: absolute;
+    background: #ECE8D8;
+    right: 68px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid gray; /* Moldura do CRT */
+}
+
+#botaoligardesligar {
+    position: absolute;
+    cursor: pointer;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    left: 35%;
+    bottom: 10px;
+    opacity: 30%;
+}
+
+.ledpower {
+            position: absolute;
+            right: 130px;
+            width: 5px;
+            height: 5px;
+            background: greenyellow;
+            border-radius: 50%;
+            box-shadow: 0 0 20px 5px #00ff00;
+            align-items: center;
+            justify-content: center;
+}
+
+.botoesovais {
+    display: flex;
+    gap: 10px;
+}
+
+.botoes1 {
+    position: absolute;
+    bottom: -2px;
+    right: 25px;
+    width: 25px;
+    height: 7px;
+    background: #ECE8D8;
+    border-radius: 50%;
+    border: 2px solid #333;
+    transform: rotate(-50deg);
+}
+
+.botoes2 {
+    position: absolute;
+    bottom: -2px;
+    right: 50px;
+    width: 25px;
+    height: 7px;
+    background: #ECE8D8;
+    border-radius: 50%;
+    border: 2px solid #333;
+    transform: rotate(-50deg);
+}
+
+.botoes3 {
+    position: absolute;
+    bottom: -2px;
+    right: 75px;
+    width: 25px;
+    height: 7px;
+    background: #ECE8D8;
+    border-radius: 50%;
+    border: 2px solid #333;
+    transform: rotate(-50deg);
+}
+
+.furinhosdesom {
+    display: flex;
+    gap: 10px;
+}
+
+.furinhos1 {
+    position: absolute;
+    right: 300px;
+    width: 5px;
+    height: 5px;
+    background: black;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.furinhos2 {
+    position: absolute;
+    left: 20px;
+    width: 5px;
+    height: 5px;
+    background: black;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.furinhos3 {
+    position: absolute;
+    left: 20px;
+    width: 5px;
+    height: 5px;
+    background: black;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.furinhos4 {
+    position: absolute;
+    left: 20px;
+    width: 5px;
+    height: 5px;
+    background: black;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.furinhos5 {
+    position: absolute;
+    left: 20px;
+    width: 5px;
+    height: 5px;
+    background: black;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.furinhos6 {
+    position: absolute;
+    right: 100px;
+    width: 5px;
+    height: 5px;
+    background: black;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.furinhos7 {
+    position: absolute;
+    left: 120px;
+    width: 5px;
+    height: 5px;
+    background: black;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.furinhos8 {
+    position: absolute;
+    left: 20px;
+    width: 5px;
+    height: 5px;
+    background: black;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.basemonitor {
+    position: absolute;
+    width: 290px;  /* 12 polegadas * 96 pixels */
+    height: 40px; /* 9 polegadas * 96 pixels */
+    bottom: -110px;
+    background: #ECE8D8; /* Simula a tela */
+    border: 0px solid gray; /* Moldura do CRT */
+    border-radius: 100px; /* Bordas levemente arredondadas */
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.6); /* Simula profundidade do vidro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gabinete {
+    position: absolute;
+    width: 800px;  /* 12 polegadas * 96 pixels */
+    height: 160px; /* 9 polegadas * 96 pixels */
+    bottom: -247px;
+    background: #ECE8D8; /* Simula a tela */
+    border: 0px solid gray; /* Moldura do CRT */
+    border-radius: 1px; /* Bordas levemente arredondadas */
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.6); /* Simula profundidade do vidro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#stickerWINXP {
+    position: absolute;
+    align-items: center;
+    width: 35px;
+    height: 50px;
+    left: 20px;
+    top: 10px;
+}
+
+#stickerintel {
+    position: absolute;
+    align-items: center;
+    width: 50px;
+    height: 40px;
+    left: 65px;
+    top: 10px;
+}
+
+.disquete {
+    background: #C0BCA8;
+    width: 220px;
+    height: 70px;
+    border-radius: 2px;
+    border: 2px solid #7E7A68;
+    box-shadow: 0px 0px 0px #D6D2BD, inset 0px 5px 0px #7E7A68
+}
+
+.disquete2 {
+    position: absolute;
+    background: #94907D;
+    width: 60px;
+    height: 25px;
+    align-items: center;
+    right: 370px;
+    bottom: 50px;
+    border-radius: 150px;
+    box-shadow: 0px 0px 0px #D6D2BD, inset 0px 5px 0px #7E7A68;
+}
+
+.disquete3 {
+    position: absolute;
+    background: #94907D;
+    width: 155px;
+    height: 17px;
+    align-items: center;
+    right: -50px;
+    bottom: 30px;
+    border-radius: 2px;
+    box-shadow: 0px 8px 0px #7E7A68, inset 0px 0px 0px #D6D2BD;
+}
+
+.disquete4 {
+    position: absolute;
+    background: #4169E1;
+    width: 30px;
+    height: 8px;
+    align-items: center;
+    right: 10px;
+    bottom: -22px;
+    border-radius: 2px;
+}
+
+.furinhogabinete {
+    position: absolute;
+    bottom: -6px;
+    left: -398px;
+    width: 5px;
+    height: 5px;
+    background: black;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.botaogabinete {
+    cursor: pointer;
+    position: absolute;
+    background: #ECE8D8;
+    left: 300px;
+    bottom: 35px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid gray; /* Moldura do CRT */
+}
+
+.ledgabinete {
+    position: absolute;
+    bottom: -25px;
+    left: 12px;
+    width: 5px;
+    height: 5px;
+    background: greenyellow;
+    border-radius: 50%;
+    box-shadow: 0 0 20px 5px #00ff00;
+    align-items: center;
+    justify-content: center;
+}
+
+#simbolobotaogabinete {
+    position: absolute;
+    cursor: pointer;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    right: 15px;
+    bottom: -2px;
+    opacity: 30%;
+}
+
