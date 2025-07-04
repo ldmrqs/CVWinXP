@@ -408,18 +408,17 @@ i'll read it and reply to you as soon as possible.
                         cursor: pointer;
                         padding: 10px;
                     " id="doomIcon">
-                        <img src="doom.png" alt="DOOM Icon"
-                             style="width: 40px; height: 40px;">
+                        <img src="doom.png" alt="DOOM Icon" style="width: 40px; height: 40px;">
                         <p style="
                             font-size: 10px; 
-                            margin: -7px 0 0 0;
+                            margin: -5px 0 0 0;
                             user-select: none;
                             cursor: default;
                         ">doom.exe</p>
                     </div>
                 </div>
             `, 280, 180);
-
+    
             // Adiciona evento de duplo clique no ícone do DOOM
             setTimeout(() => {
                 const doomIcon = iframeDoc.getElementById('doomIcon');
@@ -456,6 +455,7 @@ i'll read it and reply to you as soon as possible.
             }, 100);
         });
     }
+    
 
 
 
