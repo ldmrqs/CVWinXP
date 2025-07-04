@@ -462,7 +462,7 @@ i'll read it and reply to you as soon as possible.
     const botaoIniciar = iframeDoc.querySelector('.botão-iniciar');
     if (botaoIniciar) {
         botaoIniciar.addEventListener('click', () => {
-            alert('working on it! 🚧');
+            alert('working on it!');
         });
     }
 });
