@@ -1,8 +1,8 @@
 .barradetarefas {
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     width: 510px;
-    height: 15px;
+    height: 16px;
     right: 0px;
     background: linear-gradient(to bottom, #2a6fd4, #1e4e9d);
     display: flex;
@@ -58,30 +58,36 @@
     text-shadow: 1px 1px 2px black;
     position: relative;
     right: 30px;
+    user-select: none;
+    cursor: default;
+
 }
 
 .blocodenotas img {
     width: 37px;
     height: 37px;
     position: relative;
-    right: 2px
+    right: 3px
 }
 
 .blocodenotas span {
     position: relative;
-    right: 45px;
+    right: 40px;
     padding: 2px 4px;
     border-radius: 3px;
     color: white;
     font-family: 'Segoe UI', Tahoma, sans-serif;
     text-shadow: 1px 1px 2px black;
+    user-select: none;
+    cursor: default;
+
 }
 
 .lixeira img {
     width: 15px;
     height: 15px;
     position: relative;
-    right: 30px;
+    right: 5px;
 }
 
 .lixeira span {
@@ -121,4 +127,7 @@
     text-shadow: 1px 1px 2px black;
     position: relative;
     right: 30px;
+    user-select: none;
+    cursor: default;
+
 }

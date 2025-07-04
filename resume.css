@@ -1,0 +1,636 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+    background-image: url('https://web.archive.org/web/20091027095453/http://geocities.com/Area51/Stargate/7474/stars.gif');
+    color: #87CEEB;
+    font-family: "MS Gothic", "Courier New", monospace;
+    font-size: 12px;
+    cursor: url('https://web.archive.org/web/20091027080431/http://geocities.com/Area51/6770/skull.cur'), auto;
+}
+
+/* Links */
+a {
+    color: #87CEEB;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #8B0000;
+    text-decoration: none;
+    text-shadow: 0 0 5px #8B0000;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 3px solid #8B0000;
+    background: linear-gradient(180deg, #1a1a1a 0%, #000000 100%);
+}
+
+.site-title {
+    font-size: 36px;
+    color: #8B0000;
+    text-shadow: 2px 2px 4px #000000, 0 0 10px #8B0000;
+    font-family: "Chiller", "Creepster", fantasy;
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.skull-gif {
+    width: 50px;
+    vertical-align: middle;
+}
+
+/* Navigation */
+.nav-bar {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 10px;
+    max-width: 1000px;
+    margin: 0 auto 10px auto;
+    padding: 0 10px;
+}
+
+.nav-button {
+    flex: 1;
+    background: #1a1a1a;
+    border: 2px solid #87CEEB;
+    color: #87CEEB;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.nav-button:hover {
+    background: #8B0000;
+    border-color: #8B0000;
+    color: #000000;
+    transform: scale(1.05);
+}
+
+.nav-button.active {
+    background: #8B0000;
+    color: #000000;
+    border-color: #8B0000;
+}
+
+/* Home container específico */
+.home-container {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 10px;
+    padding: 10px;
+}
+
+/* Main container (original) */
+.main-container {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 10px;
+    padding: 10px;
+}
+
+/* Sidebars */
+.sidebar-left, .sidebar-right {
+    width: 200px;
+    flex-shrink: 0;
+}
+
+.sidebar-left > div, .sidebar-right > div {
+    background: #0a0a0a;
+    border: 2px solid #8B0000;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.sidebar-left h3, .sidebar-right h3 {
+    background: linear-gradient(90deg, #8B0000 0%, #4B0000 100%);
+    color: #87CEEB;
+    padding: 5px;
+    text-align: center;
+    margin: -10px -10px 10px -10px;
+    font-size: 14px;
+}
+
+/* Profile box */
+.online-status {
+    color: #00FF00;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Lists */
+ul {
+    list-style: none;
+}
+
+ul li:before {
+    content: "→ ";
+    color: #8B0000;
+}
+
+/* Main content */
+.main-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.home-container .main-content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Windows style */
+.window {
+    background: #0a0a0a;
+    border: 2px solid #87CEEB;
+    margin-bottom: 20px;
+}
+
+.window-header {
+    background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 100%);
+    border-bottom: 2px solid #87CEEB;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #87CEEB;
+}
+
+.window-buttons {
+    display: flex;
+    gap: 2px;
+}
+
+.window-buttons button {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #87CEEB;
+    background: #000000;
+    color: #87CEEB;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.window-buttons button:hover {
+    background: #8B0000;
+}
+
+.window-content {
+    padding: 15px;
+}
+
+/* Typing effect */
+.typing-text {
+    font-family: "Courier New", monospace;
+    color: #00FF00;
+    margin: 5px 0;
+}
+
+/* Blink effect */
+.blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Skill bars */
+.skill-category {
+    margin: 20px 0;
+}
+
+.skill-bar {
+    background: #1a1a1a;
+    border: 1px solid #87CEEB;
+    height: 20px;
+    margin: 5px 0;
+}
+
+.skill-progress {
+    background: linear-gradient(90deg, #8B0000 0%, #87CEEB 100%);
+    height: 100%;
+    text-align: center;
+    line-height: 20px;
+    color: #000000;
+    font-weight: bold;
+}
+
+/* Contact section */
+.contact-info {
+    background: #1a1a1a;
+    border: 1px dashed #87CEEB;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.guestbook-link {
+    margin-top: 20px;
+}
+
+/* Stats */
+.counter {
+    color: #00FF00;
+    font-family: "Digital", monospace;
+    font-size: 16px;
+}
+
+/* Footer */
+.footer {
+    border-top: 3px solid #8B0000;
+    padding: 20px;
+    margin-top: 50px;
+    background: #0a0a0a;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000000;
+    border: 1px solid #8B0000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #8B0000;
+    border: 1px solid #87CEEB;
+}
+
+/* Red text */
+.red-text {
+    color: #8B0000;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 0 5px #8B0000;
+}
+
+/* Project preview */
+.project-preview {
+    background: #1a1a1a;
+    border: 2px solid #87CEEB;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.project-preview h3 {
+    color: #87CEEB;
+    margin-bottom: 10px;
+}
+
+/* Music box marquee */
+.music-box marquee {
+    color: #87CEEB;
+    font-size: 11px;
+}
+
+/* Página específica */
+.page-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.page-title {
+    color: #8B0000;
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 24px;
+    margin: 0;
+}
+
+/* Quick info box */
+.quick-info {
+    background: #1a1a1a;
+    border: 2px solid #87CEEB;
+    padding: 10px;
+    margin: 20px 0;
+    max-width: 300px;
+}
+
+/* Enter site */
+.enter-site {
+    margin-top: 30px;
+}
+
+.enter-site a {
+    font-size: 16px;
+    color: #8B0000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.enter-site a:hover {
+    color: #87CEEB;
+    text-shadow: 0 0 10px #87CEEB;
+}
+
+/* Profile section */
+.profile-section h3 {
+    color: #87CEEB;
+    border-bottom: 1px solid #8B0000;
+    padding-bottom: 5px;
+    margin-top: 20px;
+}
+
+/* Social badges */
+.social-badges {
+    background: #1a1a1a;
+    border: 1px dashed #87CEEB;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+/* Experience page styles */
+.experience-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #8B0000;
+}
+
+.experience-section:last-child {
+    border-bottom: none;
+}
+
+.experience-section h3 {
+    color: #87CEEB;
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px #87CEEB;
+}
+
+/* Job entries */
+.job-entry, .education-entry, .volunteer-entry {
+    background: #1a1a1a;
+    border-left: 3px solid #8B0000;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: all 0.3s;
+}
+
+.job-entry:hover, .education-entry:hover, .volunteer-entry:hover {
+    border-left-color: #87CEEB;
+    box-shadow: 0 0 10px rgba(135, 206, 235, 0.3);
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.job-title {
+    color: #8B0000;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.job-date {
+    color: #00FF00;
+    font-size: 11px;
+    font-family: "Courier New", monospace;
+}
+
+.company {
+    color: #87CEEB;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+/* Certifications grid */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.cert-item {
+    background: #1a1a1a;
+    border: 1px solid #87CEEB;
+    padding: 10px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.cert-item:hover {
+    background: #8B0000;
+    color: #000000;
+    transform: scale(1.05);
+}
+
+/* Remove sidebars das outras páginas */
+.page-container .sidebar-left,
+.page-container .sidebar-right {
+    display: none;
+}
+
+/* Detecção de iframe pequeno e mobile */
+@media (max-width: 600px) {
+    body {
+        font-size: 10px;
+        background-image: none;
+        background-color: #000;
+    }
+
+    /* Header compacto */
+    .header {
+        padding: 10px 5px !important;
+    }
+
+    .site-title {
+        font-size: 18px !important;
+        margin: 0 5px !important;
+    }
+
+    .skull-gif {
+        width: 20px !important;
+    }
+
+    /* Layout em coluna única */
+    .main-container {
+        flex-direction: column !important;
+        padding: 5px !important;
+        max-width: 100% !important;
+    }
+
+    .home-container {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    .home-container .sidebar-left,
+    .home-container .sidebar-right {
+        width: 100%;
+        order: 2;
+    }
+
+    .home-container .main-content {
+        order: 1;
+    }
+
+    /* Na versão mobile, esconde now playing pra economizar espaço */
+    .home-container .music-box {
+        display: none;
+    }
+
+    /* Sidebars */
+    .sidebar-left, .sidebar-right {
+        width: 100% !important;
+        order: 2;
+    }
+
+    .sidebar-left > div, .sidebar-right > div {
+        margin-bottom: 5px !important;
+        padding: 5px !important;
+    }
+
+    .sidebar-left h3, .sidebar-right h3 {
+        font-size: 11px !important;
+        padding: 3px !important;
+        margin: -5px -5px 5px -5px !important;
+    }
+
+    /* Main content primeiro */
+    .main-content {
+        order: 1;
+    }
+
+    /* Navegação compacta */
+    .nav-bar {
+        flex-wrap: wrap;
+        gap: 1px !important;
+    }
+
+    .nav-button {
+        flex: 1 1 30%;
+        padding: 4px !important;
+        font-size: 9px !important;
+    }
+
+    /* Windows menores */
+    .window {
+        margin-bottom: 10px !important;
+    }
+
+    .window-header {
+        padding: 3px !important;
+        font-size: 10px !important;
+    }
+
+    .window-buttons button {
+        width: 14px !important;
+        height: 14px !important;
+        font-size: 8px !important;
+    }
+
+    .window-content {
+        padding: 8px !important;
+    }
+
+    .window-content h2 {
+        font-size: 12px !important;
+        margin-bottom: 5px !important;
+    }
+
+    /* Esconder elementos não essenciais */
+    .music-box, .badges-box, .webring-box {
+        display: none !important;
+    }
+
+    /* Skill bars menores */
+    .skill-bar {
+        height: 15px !important;
+    }
+
+    .skill-progress {
+        line-height: 15px !important;
+        font-size: 10px !important;
+    }
+
+    /* Texto menor */
+    p, li {
+        font-size: 10px !important;
+        line-height: 1.3 !important;
+    }
+
+    /* Imagens menores */
+    img {
+        max-width: 80px !important;
+    }
+
+    /* Footer compacto */
+    .footer {
+        padding: 10px !important;
+        margin-top: 20px !important;
+        font-size: 9px !important;
+    }
+
+    /* Seções colapsadas por padrão */
+    .content-section {
+        margin-bottom: 5px !important;
+    }
+
+    /* Contador inline */
+    .visitor-counter {
+        display: inline !important;
+    }
+
+    /* Marquee menor */
+    marquee {
+        font-size: 10px !important;
+    }
+
+    /* Page container mobile */
+    .page-container {
+        padding: 5px;
+    }
+
+    .page-title {
+        font-size: 16px;
+    }
+
+    .quick-info {
+        max-width: 100%;
+    }
+
+    /* Experience mobile adjustments */
+    .job-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .job-date {
+        font-size: 9px;
+    }
+
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-section h3 {
+        font-size: 12px;
+    }
+
+    .job-entry, .education-entry, .volunteer-entry {
+        padding: 8px;
+    }
+}

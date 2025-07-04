@@ -4,8 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>laris' world</title>
-    <link rel ="stylesheet" href="pcretro.css">
+    <link rel="stylesheet" href="pcretro.css">
+
+    <!-- js-dos -->
+    <script src="https://js-dos.com/v7/build/js-dos.js"></script>
+    <link href="https://js-dos.com/v7/build/js-dos.css" rel="stylesheet">
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        emailjs.init("SEU_PUBLIC_KEY_AQUI"); // Substitui com seu Public Key
+    </script>
+
+    <script src="script.js" defer></script>
 </head>
+
 <body>
     <!--estrutura da carcaça do monitor com as scalines pra dar efeito do crt da tela-->
     <div class="monitor">
@@ -53,7 +66,7 @@
     <div class="basemonitor">
     </div>
     <div class="gabinete"> <!---começo da construção do gabinete-->
-        <img src = "adesivoWINXP.png" id="stickerWINXP"> 
+        <img src="adesivoWINXP.png" id="stickerWINXP"> 
         <img src="inteladesivo.png" alt="Adesivo da Intel" id="stickerintel">
     <div class="disquete">
         <div class="disquete1">
@@ -64,7 +77,7 @@
                             <div class="ledgabinete">
                                 <img src="botaopower.png" alt="botão de ligar e desligar o computador" id="simbolobotaogabinete">
                                 <div class="furinhogabinete">
-                                    
+
                                     </div>
                                 </div>
                             </div>
