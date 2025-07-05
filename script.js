@@ -1,26 +1,25 @@
-// Estado do sistema
+
 let sistemaLigado = true;
 let janelaAtiva = null;
 let zIndexCounter = 100;
 
-// Configuração EmailJS - VERIFIQUE ESTES IDs NO SEU DASHBOARD!
-const EMAIL_SERVICE_ID = "service_2di7gtn"; // Confirme se este é o ID correto
-const EMAIL_TEMPLATE_ID = "template_svtugz7"; // Este está correto conforme a imagem
+// emailjs configuration
+const EMAIL_SERVICE_ID = "service_2di7gtn"; // 
+const EMAIL_TEMPLATE_ID = "template_svtugz7"; // 
 let ultimoEnvio = 0;
 
-// Elementos principais
 const monitor = document.querySelector('.tela');
 const ledMonitor = document.querySelector('.ledpower');
 const ledGabinete = document.querySelector('.ledgabinete');
 const botaoMonitor = document.querySelector('#botaoligardesligar');
 const botaoGabinete = document.querySelector('#simbolobotaogabinete');
 
-// Função pra gerar IP falso
+// false ip address function for the easter egg
 function gerarIPFalso() {
     return `${Math.floor(Math.random() * 256)}.${Math.floor(Math.random() * 256)}.${Math.floor(Math.random() * 256)}.${Math.floor(Math.random() * 256)}`;
 }
 
-// Função pra ligar/desligar o sistema
+// to turn on or off the system
 function togglePower() {
     sistemaLigado = !sistemaLigado;
 
@@ -39,7 +38,7 @@ function togglePower() {
     }
 }
 
-// Event listeners pros botões de power
+// power button event listeners
 if (botaoMonitor) {
     botaoMonitor.addEventListener('click', togglePower);
 }
@@ -47,7 +46,7 @@ if (botaoGabinete) {
     botaoGabinete.addEventListener('click', togglePower);
 }
 
-// Função pra salvar o autógrafo
+// function to autograph the guestbook
 window.salvarAutografo = function() {
     // Garante acesso ao EmailJS
     const emailjsLib = window.emailjs || (window.parent && window.parent.emailjs);
@@ -94,18 +93,16 @@ window.salvarAutografo = function() {
         user_agent: navigator.userAgent.substring(0, 100) // Limita o tamanho
     };
 
-    // Debug - remova depois de funcionar
     console.log('Tentando enviar email...');
     console.log('Service ID:', EMAIL_SERVICE_ID);
     console.log('Template ID:', EMAIL_TEMPLATE_ID);
     console.log('Dados:', dadosEmail);
 
-    // Usa o emailjsLib em vez de emailjs diretamente
     emailjsLib.send("service_2di7gtn", "template_svtugz7", dadosEmail)
         .then((response) => {
             console.log('Email enviado com sucesso!', response);
             ultimoEnvio = Date.now();
-            mostrarFeedback('success! thanks for the message, fren.', 'success');
+            mostrarFeedback('success!', 'success');
 
             // Easter egg do IP falso
             setTimeout(() => {
@@ -135,7 +132,7 @@ window.salvarAutografo = function() {
         });
 };
 
-// Função pra mostrar feedback
+// feedback function
 function mostrarFeedback(mensagem, tipo) {
     const feedback = document.getElementById('feedback');
     if (feedback) {
@@ -151,12 +148,11 @@ function mostrarFeedback(mensagem, tipo) {
     }
 }
 
-// Aguarda o iframe carregar
 window.addEventListener('load', function() {
     const iframe = document.querySelector('iframe');
     const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
 
-    // Adiciona relógio na barra de tarefas
+    // taskbar clock
     const barraDetarefas = iframeDoc.querySelector('.barradetarefas');
     if (barraDetarefas) {
         const relogio = document.createElement('div');
@@ -183,13 +179,13 @@ window.addEventListener('load', function() {
         setInterval(atualizarRelogio, 1000);
     }
 
-    // Função pra criar janelas
+
     function criarJanela(titulo, conteudo, largura = 400, altura = 300, usarIframe = false) {
         // Ajusta o tamanho se for maior que a tela
         if (largura > 550) largura = 550;
         if (altura > 320) altura = 320;
 
-        // Centraliza melhor na tela do monitor
+
         const centerX = Math.max(25, (600 - largura) / 2);
         const centerY = Math.max(10, (380 - altura) / 2);
 
@@ -218,14 +214,14 @@ window.addEventListener('load', function() {
         const botoes = document.createElement('div');
         botoes.className = 'botoes-janela';
 
-        // Criar botões com classes específicas
+
         const botaoMinimizar = document.createElement('div');
         botaoMinimizar.className = 'botao-janela botao-minimizar';
         botaoMinimizar.addEventListener('click', () => minimizarJanela(janela));
 
         const botaoMaximizar = document.createElement('div');
         botaoMaximizar.className = 'botao-janela botao-maximizar';
-        // Não faz nada por enquanto
+        // doesnt do anything yet
 
         const botaoFechar = document.createElement('div');
         botaoFechar.className = 'botao-janela botao-fechar';
@@ -274,7 +270,7 @@ window.addEventListener('load', function() {
         return janela;
     }
 
-    // Função pra tornar janelas arrastáveis
+
     function tornarArrastavel(elemento, handle) {
         let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 
@@ -315,7 +311,7 @@ window.addEventListener('load', function() {
         janela.remove();
     }
 
-    // Event listeners pros ícones
+
     const internetExplorer = iframeDoc.querySelector('.internet');
     const blocoDeNotas = iframeDoc.querySelector('.blocodenotas');
     const lixeira = iframeDoc.querySelector('.lixeira');
@@ -323,7 +319,7 @@ window.addEventListener('load', function() {
     if (internetExplorer) {
         internetExplorer.addEventListener('dblclick', (e) => {
             e.stopPropagation();
-            // Agora carrega o portfolio.html no iframe
+            
             criarJanela('Internet Explorer - larissa\'s dark corner', 'resume.html', 510, 400, true);
         });
     }
@@ -423,7 +419,7 @@ i'll read it and reply to you as soon as possible.
             `, 280, 180);
 
 
-            // Adiciona evento de duplo clique no ícone do DOOM
+            
             setTimeout(() => {
                 const doomIcon = iframeDoc.getElementById('doomIcon');
                 if (doomIcon) {
