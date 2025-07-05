@@ -331,15 +331,15 @@ window.addEventListener('load', function() {
                 ">
                     <div style="
                         background: #f0f0f0; 
-                        padding: 5px 10px; 
+                        padding: 10px 10px; 
                         border-bottom: 1px solid #ccc; 
                         display: flex; 
                         justify-content: space-between; 
                         align-items: center;
                     ">
                         <div>
-                            <button id="botaoSalvar" onclick="salvarAutografo()" style="padding: 2px 10px; font-size: 11px; cursor: pointer;">💾 Salvar</button>
-                            <span style="font-size: 10px; color: #666; margin-left: 10px;">Ctrl+S</span>
+                            <button id="botaoSalvar" onclick="salvarAutografo()" style="padding: 2px 10px; font-size: 11px; cursor: pointer;">💾 save</button>
+                            <span style="font-size: 10px; color: #666; margin-left: 10px;">or try Ctrl+S</span>
                         </div>
                         <div id="feedback" style="font-size: 11px; display: none;"></div>
                     </div>
