@@ -346,7 +346,7 @@ window.addEventListener('load', function() {
                     ">
                         <div>
                             <button id="botaoSalvar" onclick="salvarAutografo()" style="padding: 2px 10px; font-size: 11px; cursor: pointer;">💾 save</button>
-                            <span style="font-size: 10px; color: #666; margin-left: 10px;">or try Ctrl+S</span>
+                            <span style="font-size: 10px; color: #666; margin-left: 10px;"></span>
                         </div>
                         <div id="feedback" style="font-size: 11px; display: none;"></div>
                     </div>
