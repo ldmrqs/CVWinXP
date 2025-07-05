@@ -3,9 +3,9 @@ let sistemaLigado = true;
 let janelaAtiva = null;
 let zIndexCounter = 100;
 
-// Configuração EmailJS
-const EMAIL_SERVICE_ID = "service_zkt1wfc"; // Substitui
-const EMAIL_TEMPLATE_ID = "template_pqwcaat"; // Substitui
+// Configuração EmailJS - VERIFIQUE ESTES IDs NO SEU DASHBOARD!
+const EMAIL_SERVICE_ID = "service_2di7gtn"; // Confirme se este é o ID correto
+const EMAIL_TEMPLATE_ID = "template_svtugz7"; // Este está correto conforme a imagem
 let ultimoEnvio = 0;
 
 // Elementos principais
@@ -78,15 +78,22 @@ window.salvarAutografo = function() {
     botaoSalvar.textContent = 'sending...';
 
     const dadosEmail = {
-        to_email: "ldrmqs@gmail.com", // Substitui com seu email
-        from_name: "fren",
+        to_email: "ldrmqs@gmail.com",
+        from_name: "Website Visitor",
         message: mensagem,
         timestamp: new Date().toLocaleString('pt-BR'),
-        user_agent: navigator.userAgent
+        user_agent: navigator.userAgent.substring(0, 100) // Limita o tamanho
     };
 
+    // Debug - remova depois de funcionar
+    console.log('Tentando enviar email...');
+    console.log('Service ID:', EMAIL_SERVICE_ID);
+    console.log('Template ID:', EMAIL_TEMPLATE_ID);
+    console.log('Dados:', dadosEmail);
+
     emailjs.send(EMAIL_SERVICE_ID, EMAIL_TEMPLATE_ID, dadosEmail)
-        .then(() => {
+        .then((response) => {
+            console.log('Email enviado com sucesso!', response);
             ultimoEnvio = Date.now();
             mostrarFeedback('success! thanks for the message, fren.', 'success');
 
@@ -107,14 +114,14 @@ window.salvarAutografo = function() {
 
             setTimeout(() => {
                 botaoSalvar.disabled = false;
-                botaoSalvar.textContent = '💾 Salvar';
+                botaoSalvar.textContent = '💾 save';
             }, 3000);
         })
         .catch((error) => {
-            console.error('Erro:', error);
+            console.error('Erro detalhado:', error);
             mostrarFeedback('❌ error! try again, bro', 'error');
             botaoSalvar.disabled = false;
-            botaoSalvar.textContent = '💾 Salvar';
+            botaoSalvar.textContent = '💾 save';
         });
 };
 
@@ -331,7 +338,7 @@ window.addEventListener('load', function() {
                         align-items: center;
                     ">
                         <div>
-                            <button id="botaoSalvar" onclick="salvarAutografo()" style="padding: 2px 10px; font-size: 11px; cursor: pointer;">💾</button>
+                            <button id="botaoSalvar" onclick="salvarAutografo()" style="padding: 2px 10px; font-size: 11px; cursor: pointer;">💾 Salvar</button>
                             <span style="font-size: 10px; color: #666; margin-left: 10px;">Ctrl+S</span>
                         </div>
                         <div id="feedback" style="font-size: 11px; display: none;"></div>
@@ -394,10 +401,10 @@ i'll read it and reply to you as soon as possible.
                         cursor: pointer;
                         padding: 10px;
                     " id="doomIcon">
-                        <img src="doom2.png" alt="DOOM Icon" style="width: 40px; height: 20px;">
+                        <img src="doom.png" alt="DOOM Icon" style="width: 40px; height: 40px;">
                         <p style=
                             font-size: 10px; 
-                            margin: 5px 0 0 0;
+                            margin: 50px 0 0 0;
                             user-select: none;
                             cursor: default;
                         ">doom.exe</p>
