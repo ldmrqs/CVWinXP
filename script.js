@@ -369,7 +369,7 @@ window.addEventListener('load', function() {
                             outline: none;
                             display: block;
                         ">
-hello, IP: ${ipFalso}! welcome to my cv and my guestbook.
+hello, IP: ${ipFalso}! welcome to my guestbook.
 
 write whatever you want here and save it to leave me a message.
 
