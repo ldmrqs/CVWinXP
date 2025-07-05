@@ -408,7 +408,7 @@ i'll read it and reply to you as soon as possible.
                         cursor: pointer;
                         padding: 10px;
                     " id="doomIcon">
-                        <img src="doom.png" alt="DOOM Icon" style="width: 40px; height: 40px;">
+                        <img src="doom2.png" alt="DOOM Icon" style="width: 40px; height: 20px;">
                         <p style="
                             font-size: 10px; 
                             margin: -5px 0 0 0;
