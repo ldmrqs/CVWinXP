@@ -184,11 +184,10 @@ window.addEventListener('load', function() {
         // Ajusta o tamanho se for maior que a tela
         if (largura > 550) largura = 550;
         if (altura > 320) altura = 320;
-
-
+    
         const centerX = Math.max(25, (600 - largura) / 2);
         const centerY = Math.max(10, (380 - altura) / 2);
-
+    
         const janela = document.createElement('div');
         janela.className = 'janela janela-xp';
         janela.style.cssText = `
@@ -202,41 +201,41 @@ window.addEventListener('load', function() {
             z-index: ${++zIndexCounter};
             top: ${centerY}px;
             left: ${centerX}px;
+            overflow: hidden; /* ADICIONA OVERFLOW HIDDEN AQUI */
         `;
-
+    
         const barraTitulo = document.createElement('div');
         barraTitulo.className = 'barra-titulo barra-titulo-xp';
-
+    
         const tituloSpan = document.createElement('span');
         tituloSpan.className = 'titulo-janela';
         tituloSpan.textContent = titulo;
-
+    
         const botoes = document.createElement('div');
         botoes.className = 'botoes-janela';
-
-
+    
         const botaoMinimizar = document.createElement('div');
         botaoMinimizar.className = 'botao-janela botao-minimizar';
         botaoMinimizar.addEventListener('click', () => minimizarJanela(janela));
-
+    
         const botaoMaximizar = document.createElement('div');
         botaoMaximizar.className = 'botao-janela botao-maximizar';
         // doesnt do anything yet
-
+    
         const botaoFechar = document.createElement('div');
         botaoFechar.className = 'botao-janela botao-fechar';
         botaoFechar.addEventListener('click', () => fecharJanela(janela));
-
+    
         botoes.appendChild(botaoMinimizar);
         botoes.appendChild(botaoMaximizar);
         botoes.appendChild(botaoFechar);
-
+    
         barraTitulo.appendChild(tituloSpan);
         barraTitulo.appendChild(botoes);
-
+    
         const conteudoDiv = document.createElement('div');
         conteudoDiv.className = 'conteudo-janela';
-
+    
         if (usarIframe) {
             conteudoDiv.style.cssText = `
                 padding: 0;
@@ -253,22 +252,24 @@ window.addEventListener('load', function() {
                 font-family: 'Tahoma', 'Segoe UI', sans-serif;
                 font-size: 11px;
                 background: white;
+                box-sizing: border-box; /* ADICIONA BOX-SIZING */
             `;
             conteudoDiv.innerHTML = conteudo;
         }
-
+    
         janela.appendChild(barraTitulo);
         janela.appendChild(conteudoDiv);
-
+    
         tornarArrastavel(janela, barraTitulo);
-
+    
         const desktop = iframeDoc.querySelector('.desktop');
         if (desktop) {
             desktop.appendChild(janela);
         }
-
+    
         return janela;
     }
+    
 
 
     function tornarArrastavel(elemento, handle) {
