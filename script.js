@@ -411,7 +411,7 @@ i'll read it and reply to you as soon as possible.
                         <img src="doom.png" alt="DOOM Icon" style="width: 40px; height: 40px;">
                         <p style="
                             font-size: 10px; 
-                            margin: -10px 0 0 0;
+                            margin: -5px 0 0 0;
                             user-select: none;
                             cursor: default;
                         ">doom.exe</p>
