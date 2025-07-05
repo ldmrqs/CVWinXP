@@ -60,7 +60,6 @@
     right: 30px;
     user-select: none;
     cursor: default;
-
 }
 
 .blocodenotas img {
@@ -80,7 +79,6 @@
     text-shadow: 1px 1px 2px black;
     user-select: none;
     cursor: default;
-
 }
 
 .lixeira img {
@@ -129,5 +127,110 @@
     right: 30px;
     user-select: none;
     cursor: default;
+}
 
+/* Estilos das janelas Windows XP */
+.janela-xp {
+    font-family: 'Tahoma', 'Segoe UI', sans-serif;
+    font-size: 11px;
+}
+
+.janela-xp .barra-titulo-xp {
+    background: linear-gradient(to bottom, #0058ee 0%, #3a93ff 3%, #288eff 6%, #127dff 12%, #036fe4 25%, #0260d7 37%, #0054ce 50%, #0054ce 100%);
+    height: 30px;
+    padding: 0;
+    border-radius: 6px 6px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.janela-xp .titulo-janela {
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    padding-left: 8px;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+    flex: 1;
+}
+
+.janela-xp .botoes-janela {
+    display: flex;
+    padding-right: 2px;
+    gap: 2px;
+}
+
+.janela-xp .botao-janela {
+    width: 21px;
+    height: 21px;
+    border: 1px solid white;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    box-shadow: inset 0 0 1px rgba(0,0,0,0.5);
+}
+
+/* Botão Minimizar */
+.janela-xp .botao-minimizar {
+    background: radial-gradient(circle at 30% 30%, #4ba0ff, #0054ce);
+}
+
+.janela-xp .botao-minimizar:hover {
+    background: radial-gradient(circle at 30% 30%, #6bb6ff, #1a6fe8);
+}
+
+.janela-xp .botao-minimizar::after {
+    content: '';
+    width: 10px;
+    height: 2px;
+    background: white;
+    position: absolute;
+    bottom: 4px;
+}
+
+/* Botão Maximizar */
+.janela-xp .botao-maximizar {
+    background: radial-gradient(circle at 30% 30%, #4ba0ff, #0054ce);
+}
+
+.janela-xp .botao-maximizar:hover {
+    background: radial-gradient(circle at 30% 30%, #6bb6ff, #1a6fe8);
+}
+
+.janela-xp .botao-maximizar::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border: 2px solid white;
+    border-top-width: 3px;
+    position: absolute;
+}
+
+/* Botão Fechar */
+.janela-xp .botao-fechar {
+    background: radial-gradient(circle at 30% 30%, #ff6b68, #c44450);
+}
+
+.janela-xp .botao-fechar:hover {
+    background: radial-gradient(circle at 30% 30%, #ff8885, #d55560);
+}
+
+.janela-xp .botao-fechar::before,
+.janela-xp .botao-fechar::after {
+    content: '';
+    position: absolute;
+    width: 11px;
+    height: 2px;
+    background: white;
+}
+
+.janela-xp .botao-fechar::before {
+    transform: rotate(45deg);
+}
+
+.janela-xp .botao-fechar::after {
+    transform: rotate(-45deg);
 }

@@ -177,62 +177,46 @@ window.addEventListener('load', function() {
         const centerY = Math.max(10, (380 - altura) / 2);
 
         const janela = document.createElement('div');
-        janela.className = 'janela';
+        janela.className = 'janela janela-xp';
         janela.style.cssText = `
             position: absolute;
             width: ${largura}px;
             height: ${altura}px;
             background: #ece9d8;
-            border: 2px solid #0054e3;
+            border: 3px solid #0054e3;
             border-radius: 8px 8px 0 0;
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+            box-shadow: 0 0 0 1px #003dd0 inset, 2px 2px 5px rgba(0,0,0,0.5);
             z-index: ${++zIndexCounter};
             top: ${centerY}px;
             left: ${centerX}px;
         `;
-        const barraTitulo = document.createElement('div');
-        barraTitulo.className = 'barra-titulo';
-        barraTitulo.style.cssText = `
-            background: linear-gradient(to right, #0054e3, #4894fe);
-            color: white;
-            padding: 3px 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: move;
-            border-radius: 6px 6px 0 0;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            font-size: 12px;
-        `;
 
+        const barraTitulo = document.createElement('div');
+        barraTitulo.className = 'barra-titulo barra-titulo-xp';
 
         const tituloSpan = document.createElement('span');
+        tituloSpan.className = 'titulo-janela';
         tituloSpan.textContent = titulo;
 
         const botoes = document.createElement('div');
-        botoes.style.cssText = 'display: flex; gap: 2px;';
+        botoes.className = 'botoes-janela';
 
-        ['_', '□', 'X'].forEach((simbolo, index) => {
-            const botao = document.createElement('button');
-            botao.textContent = simbolo;
-            botao.style.cssText = `
-                width: 20px;
-                height: 20px;
-                border: none;
-                background: #ece9d8;
-                cursor: pointer;
-                font-size: 10px;
-                border-radius: 3px;
-            `;
+        // Criar botões com classes específicas
+        const botaoMinimizar = document.createElement('div');
+        botaoMinimizar.className = 'botao-janela botao-minimizar';
+        botaoMinimizar.addEventListener('click', () => minimizarJanela(janela));
 
-            botao.addEventListener('click', () => {
-                if (index === 0) minimizarJanela(janela);
-                else if (index === 1) return; // Não faz nada no maximizar
-                else fecharJanela(janela);
-            });
+        const botaoMaximizar = document.createElement('div');
+        botaoMaximizar.className = 'botao-janela botao-maximizar';
+        // Não faz nada por enquanto
 
-            botoes.appendChild(botao);
-        });
+        const botaoFechar = document.createElement('div');
+        botaoFechar.className = 'botao-janela botao-fechar';
+        botaoFechar.addEventListener('click', () => fecharJanela(janela));
+
+        botoes.appendChild(botaoMinimizar);
+        botoes.appendChild(botaoMaximizar);
+        botoes.appendChild(botaoFechar);
 
         barraTitulo.appendChild(tituloSpan);
         barraTitulo.appendChild(botoes);
@@ -245,6 +229,7 @@ window.addEventListener('load', function() {
                 padding: 0;
                 height: calc(100% - 30px);
                 overflow: hidden;
+                background: white;
             `;
             conteudoDiv.innerHTML = `<iframe src="${conteudo}" style="width: 100%; height: 100%; border: none;"></iframe>`;
         } else {
@@ -252,8 +237,9 @@ window.addEventListener('load', function() {
                 padding: 10px;
                 height: calc(100% - 30px);
                 overflow: auto;
-                font-family: 'Segoe UI', Tahoma, sans-serif;
-                font-size: 12px;
+                font-family: 'Tahoma', 'Segoe UI', sans-serif;
+                font-size: 11px;
+                background: white;
             `;
             conteudoDiv.innerHTML = conteudo;
         }
@@ -409,9 +395,9 @@ i'll read it and reply to you as soon as possible.
                         padding: 10px;
                     " id="doomIcon">
                         <img src="doom2.png" alt="DOOM Icon" style="width: 40px; height: 20px;">
-                        <p style="
+                        <p style=
                             font-size: 10px; 
-                            margin: -5px 0 0 0;
+                            margin: 5px 0 0 0;
                             user-select: none;
                             cursor: default;
                         ">doom.exe</p>
