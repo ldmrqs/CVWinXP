@@ -49,6 +49,15 @@ if (botaoGabinete) {
 
 // Função pra salvar o autógrafo
 window.salvarAutografo = function() {
+    // Garante acesso ao EmailJS
+    const emailjsLib = window.emailjs || (window.parent && window.parent.emailjs);
+
+    if (!emailjsLib) {
+        console.error('EmailJS não está disponível!');
+        mostrarFeedback('❌ EmailJS not loaded! Try refreshing the page.', 'error');
+        return;
+    }
+
     const textarea = document.getElementById('livroAutografos');
     const botaoSalvar = document.getElementById('botaoSalvar');
     const conteudo = textarea.value;
@@ -75,7 +84,7 @@ window.salvarAutografo = function() {
     }
 
     botaoSalvar.disabled = true;
-    botaoSalvar.textContent = 'sending...';
+    botaoSalvar.textContent = 'saving...';
 
     const dadosEmail = {
         to_email: "ldrmqs@gmail.com",
@@ -91,7 +100,8 @@ window.salvarAutografo = function() {
     console.log('Template ID:', EMAIL_TEMPLATE_ID);
     console.log('Dados:', dadosEmail);
 
-    emailjs.send("service_2di7gtn", "template_svtugz7", dadosEmail)
+    // Usa o emailjsLib em vez de emailjs diretamente
+    emailjsLib.send("service_2di7gtn", "template_svtugz7", dadosEmail)
         .then((response) => {
             console.log('Email enviado com sucesso!', response);
             ultimoEnvio = Date.now();
@@ -411,8 +421,8 @@ i'll read it and reply to you as soon as possible.
                     </div>
                 </div>
             `, 280, 180);
-    
-    
+
+
             // Adiciona evento de duplo clique no ícone do DOOM
             setTimeout(() => {
                 const doomIcon = iframeDoc.getElementById('doomIcon');
@@ -449,8 +459,8 @@ i'll read it and reply to you as soon as possible.
             }, 100);
         });
     }
-    
-    
+
+
 
 
 
