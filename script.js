@@ -373,7 +373,7 @@ hello, IP: ${ipFalso}! welcome to my cv and my guestbook.
 
 write whatever you want here and save it to leave me a message.
 
-i'll read it and reply to you as soon as possible.
+c'mon, fren, leave your mark!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 </textarea>
