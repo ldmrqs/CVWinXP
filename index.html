@@ -10,13 +10,13 @@
     <script src="https://js-dos.com/v7/build/js-dos.js"></script>
     <link href="https://js-dos.com/v7/build/js-dos.css" rel="stylesheet">
 
-    <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-        emailjs.init("vE_JDVEjg4H-6ZnIN"); // Sua Public Key
+    <!-- EmailJS - IMPORTANTE: Carregar ANTES do script.js -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("vE_JDVEjg4H-6ZnIN");
+        })();
     </script>
-
-    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -90,7 +90,7 @@
     </div>
     </div>
 
+    <!-- Script.js no FINAL do body -->
+    <script src="script.js"></script>
 </body>
-<footer> 
-</footer>
 </html>

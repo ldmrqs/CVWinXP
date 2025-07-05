@@ -91,7 +91,7 @@ window.salvarAutografo = function() {
     console.log('Template ID:', EMAIL_TEMPLATE_ID);
     console.log('Dados:', dadosEmail);
 
-    emailjs.send(EMAIL_SERVICE_ID, EMAIL_TEMPLATE_ID, dadosEmail)
+    emailjs.send("service_2di7gtn", "template_svtugz7", dadosEmail)
         .then((response) => {
             console.log('Email enviado com sucesso!', response);
             ultimoEnvio = Date.now();
