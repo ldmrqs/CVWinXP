@@ -37,6 +37,26 @@ body {
 
 }
 
+/* Overlay preto para quando o monitor estiver desligado */
+.tela::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 9999;
+}
+
+.tela.desligado::after {
+    opacity: 1;
+}
+
+
 /*construção das scanlines no vidro pra dar efeito de crt*/
 .scanlines {
     position: absolute;

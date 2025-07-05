@@ -24,19 +24,20 @@ function togglePower() {
     sistemaLigado = !sistemaLigado;
 
     if (sistemaLigado) {
-        monitor.style.opacity = '1';
+        monitor.classList.remove('desligado');
         ledMonitor.style.background = 'greenyellow';
         ledMonitor.style.boxShadow = '0 0 20px 5px #00ff00';
         ledGabinete.style.background = 'greenyellow';
         ledGabinete.style.boxShadow = '0 0 20px 5px #00ff00';
     } else {
-        monitor.style.opacity = '0.1';
+        monitor.classList.add('desligado');
         ledMonitor.style.background = '#333';
         ledMonitor.style.boxShadow = 'none';
         ledGabinete.style.background = '#333';
         ledGabinete.style.boxShadow = 'none';
     }
 }
+
 
 // power button event listeners
 if (botaoMonitor) {
