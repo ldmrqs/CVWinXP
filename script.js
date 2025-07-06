@@ -326,6 +326,9 @@ window.addEventListener('load', function() {
         });
     }
 
+
+
+    
     if (blocoDeNotas) {
         blocoDeNotas.addEventListener('dblclick', (e) => {
             e.stopPropagation();
