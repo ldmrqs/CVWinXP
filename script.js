@@ -322,7 +322,7 @@ window.addEventListener('load', function() {
         internetExplorer.addEventListener('dblclick', (e) => {
             e.stopPropagation();
             
-            criarJanela('Internet Explorer - larissa\'s dark corner', 'resume.html', 510, 400, true);
+            criarJanela('Internet Explorer - larissa\'s retro cv', 'resume.html', 510, 400, true);
         });
     }
 
