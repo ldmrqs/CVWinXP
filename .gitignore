@@ -1,0 +1,12 @@
+# Environment variables (CRITICAL - never commit this!)
+.env
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store

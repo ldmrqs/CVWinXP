@@ -3,9 +3,11 @@ let sistemaLigado = true;
 let janelaAtiva = null;
 let zIndexCounter = 100;
 
-// emailjs configuration
-const EMAIL_SERVICE_ID = "service_2di7gtn"; // 
-const EMAIL_TEMPLATE_ID = "template_svtugz7"; // 
+// API configuration (credentials now secure on backend)
+// Automatically detects if running locally or in production
+const API_URL = window.location.hostname === 'localhost' 
+    ? 'http://localhost:3001/api'
+    : 'https://ldmrqs.com/api'; // Update this to your actual backend URL
 let ultimoEnvio = 0;
 
 const monitor = document.querySelector('.tela');
@@ -47,17 +49,8 @@ if (botaoGabinete) {
     botaoGabinete.addEventListener('click', togglePower);
 }
 
-// function to autograph the guestbook
-window.salvarAutografo = function() {
-    // Garante acesso ao EmailJS
-    const emailjsLib = window.emailjs || (window.parent && window.parent.emailjs);
-
-    if (!emailjsLib) {
-        console.error('EmailJS não está disponível!');
-        mostrarFeedback('❌ EmailJS not loaded! Try refreshing the page.', 'error');
-        return;
-    }
-
+// function to autograph the guestbook (now using secure backend API)
+window.salvarAutografo = async function() {
     const textarea = document.getElementById('livroAutografos');
     const botaoSalvar = document.getElementById('botaoSalvar');
     const conteudo = textarea.value;
@@ -76,32 +69,22 @@ window.salvarAutografo = function() {
         return;
     }
 
-    const agora = Date.now();
-    if (agora - ultimoEnvio < 30000) {
-        const segundosRestantes = Math.ceil((30000 - (agora - ultimoEnvio)) / 1000);
-        mostrarFeedback(`wait a few ${segundosRestantes}s to send another one.`, 'warning');
-        return;
-    }
-
     botaoSalvar.disabled = true;
     botaoSalvar.textContent = 'saving...';
 
-    const dadosEmail = {
-        to_email: "ldrmqs@gmail.com",
-        from_name: "Website Visitor",
-        message: mensagem,
-        timestamp: new Date().toLocaleString('pt-BR'),
-        user_agent: navigator.userAgent.substring(0, 100) // Limita o tamanho
-    };
+    try {
+        // Send to secure backend API
+        const response = await fetch(`${API_URL}/guestbook`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message: mensagem })
+        });
 
-    console.log('Tentando enviar email...');
-    console.log('Service ID:', EMAIL_SERVICE_ID);
-    console.log('Template ID:', EMAIL_TEMPLATE_ID);
-    console.log('Dados:', dadosEmail);
+        const data = await response.json();
 
-    emailjsLib.send("service_2di7gtn", "template_svtugz7", dadosEmail)
-        .then((response) => {
-            console.log('Email enviado com sucesso!', response);
+        if (response.ok && data.success) {
             ultimoEnvio = Date.now();
             mostrarFeedback('success!', 'success');
 
@@ -124,13 +107,17 @@ window.salvarAutografo = function() {
                 botaoSalvar.disabled = false;
                 botaoSalvar.textContent = '💾 save';
             }, 3000);
-        })
-        .catch((error) => {
-            console.error('Erro detalhado:', error);
-            mostrarFeedback('❌ error! try again, bro', 'error');
+        } else {
+            mostrarFeedback(data.error || '❌ error! try again, bro', 'error');
             botaoSalvar.disabled = false;
             botaoSalvar.textContent = '💾 save';
-        });
+        }
+    } catch (error) {
+        console.error('Error sending message:', error);
+        mostrarFeedback('❌ error! try again, bro', 'error');
+        botaoSalvar.disabled = false;
+        botaoSalvar.textContent = '💾 save';
+    }
 };
 
 // feedback function
@@ -443,11 +430,12 @@ c'mon, fren, leave your mark!
                                 font-family: 'Courier New';
                             ">
                                 <div style="text-align: center;">
-                                    <iframe 
+                                                <iframe 
                                         src="https://archive.org/embed/DoomsharewareEpisode" 
                                         width="510" 
                                         height="290" 
                                         frameborder="0" 
+                                        sandbox="allow-scripts allow-same-origin"
                                         webkitallowfullscreen="true" 
                                         mozallowfullscreen="true" 
                                         allowfullscreen>
