@@ -103,11 +103,4 @@ npm run build
 
 - The beige CRT monitors from the early 2000s
 - [TurboWarp Windows XP Emulator](https://turbowarp.org/235298186/fullscreen) for design reference
-- [Ste_16bit's retro PC project](https://ste16bit.com/)
-
----
-
-## Links
-
-- **Live site**: [ldmrqs.com](https://ldmrqs.com)
-- **GitHub**: [github.com/ldmrqs/CVWinXP](https://github.com/ldmrqs/CVWinXP)
+- [Ste_16bit's retro PC project](https://ste16bit.com)
