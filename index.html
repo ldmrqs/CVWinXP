@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>retro cv</title>
-    <link rel="stylesheet" href="pcretro.css">
+    <link rel="stylesheet" href="/src/css/pcretro.css">
 
     <!-- Content Security Policy -->
     <meta http-equiv="Content-Security-Policy" 
@@ -12,7 +12,7 @@
                    script-src 'self' https://js-dos.com https://archive.org 'unsafe-inline'; 
                    style-src 'self' https://js-dos.com 'unsafe-inline'; 
                    img-src 'self' data: https:; 
-                   connect-src 'self' http://localhost:3001 https://ldmrqs.com; 
+                   connect-src 'self' http://localhost:3001 https://ldmrqs.com ws://localhost:5173; 
                    frame-src 'self' https://archive.org;">
 
     <!-- js-dos with SRI -->
@@ -43,23 +43,23 @@
     </div>
     <div class="continuacaomonitor">
         <div class="botaopower">
-            <img src="botaopower.png" alt="botão de ligar e desligar o monitor" id="botaoligardesligar">
+            <img src="/images/monitor/botaopower.png" alt="botão de ligar e desligar o monitor" id="botaoligardesligar">
         </div>
         <div class="ledpower">
             <div class="botoesovais">
-                <div class="botoes1"></div>
-                <div class="botoes2"></div>
-                <div class="botoes3"></div>
+                <div class="oval-btn botoes1"></div>
+                <div class="oval-btn botoes2"></div>
+                <div class="oval-btn botoes3"></div>
             </div>
             <div class="furinhosdesom">
-                <div class="furinhos1">
-                    <div class="furinhos2">
-                        <div class="furinhos3">
-                            <div class="furinhos4">
-                                <div class="furinhos5">
-                                    <div class="furinhos6">
-                                        <div class="furinhos7">
-                                            <div class="furinhos8">
+                <div class="hole furinhos1">
+                    <div class="hole furinhos2">
+                        <div class="hole furinhos3">
+                            <div class="hole furinhos4">
+                                <div class="hole furinhos5">
+                                    <div class="hole furinhos6">
+                                        <div class="hole furinhos7">
+                                            <div class="hole furinhos8">
                                             </div>
                                         </div>
                                     </div>
@@ -74,8 +74,8 @@
     <div class="basemonitor">
     </div>
     <div class="gabinete"> <!---começo da construção do gabinete-->
-        <img src="adesivoWINXP.png" id="stickerWINXP"> 
-        <img src="inteladesivo.png" alt="Adesivo da Intel" id="stickerintel">
+        <img src="/images/monitor/adesivoWINXP.png" id="stickerWINXP"> 
+        <img src="/images/monitor/inteladesivo.png" alt="Adesivo da Intel" id="stickerintel">
     <div class="disquete">
         <div class="disquete1">
             <div class="disquete2">
@@ -83,7 +83,7 @@
                     <div class="disquete4">
                         <div class="botaogabinete">
                             <div class="ledgabinete">
-                                <img src="botaopower.png" alt="botão de ligar e desligar o computador" id="simbolobotaogabinete">
+                                <img src="/images/monitor/botaopower.png" alt="botão de ligar e desligar o computador" id="simbolobotaogabinete">
                                 <div class="furinhogabinete">
 
                                     </div>
@@ -98,7 +98,6 @@
     </div>
     </div>
 
-    <!-- Script.js no FINAL do body -->
-    <script src="script.js"></script>
+    <script type="module" src="/src/js/main.js"></script>
 </body>
 </html>

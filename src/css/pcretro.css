@@ -172,10 +172,9 @@ h3 {
     gap: 10px;
 }
 
-.botoes1 {
+.oval-btn {
     position: absolute;
     bottom: -2px;
-    right: 25px;
     width: 25px;
     height: 7px;
     background: #ECE8D8;
@@ -183,123 +182,30 @@ h3 {
     border: 2px solid #333;
     transform: rotate(-50deg);
 }
-
-.botoes2 {
-    position: absolute;
-    bottom: -2px;
-    right: 50px;
-    width: 25px;
-    height: 7px;
-    background: #ECE8D8;
-    border-radius: 50%;
-    border: 2px solid #333;
-    transform: rotate(-50deg);
-}
-
-.botoes3 {
-    position: absolute;
-    bottom: -2px;
-    right: 75px;
-    width: 25px;
-    height: 7px;
-    background: #ECE8D8;
-    border-radius: 50%;
-    border: 2px solid #333;
-    transform: rotate(-50deg);
-}
+.botoes1 { right: 25px; }
+.botoes2 { right: 50px; }
+.botoes3 { right: 75px; }
 
 .furinhosdesom {
     display: flex;
     gap: 10px;
 }
 
-.furinhos1 {
+.hole {
     position: absolute;
-    right: 300px;
     width: 5px;
     height: 5px;
     background: black;
     border-radius: 50%;
-    align-items: center;
-    justify-content: center;
 }
-
-.furinhos2 {
-    position: absolute;
-    left: 20px;
-    width: 5px;
-    height: 5px;
-    background: black;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-}
-
-.furinhos3 {
-    position: absolute;
-    left: 20px;
-    width: 5px;
-    height: 5px;
-    background: black;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-}
-
-.furinhos4 {
-    position: absolute;
-    left: 20px;
-    width: 5px;
-    height: 5px;
-    background: black;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-}
-
-.furinhos5 {
-    position: absolute;
-    left: 20px;
-    width: 5px;
-    height: 5px;
-    background: black;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-}
-
-.furinhos6 {
-    position: absolute;
-    right: 100px;
-    width: 5px;
-    height: 5px;
-    background: black;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-}
-
-.furinhos7 {
-    position: absolute;
-    left: 120px;
-    width: 5px;
-    height: 5px;
-    background: black;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-}
-
-.furinhos8 {
-    position: absolute;
-    left: 20px;
-    width: 5px;
-    height: 5px;
-    background: black;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-}
+.furinhos1 { right: 300px; }
+.furinhos2 { left: 20px; }
+.furinhos3 { left: 20px; }
+.furinhos4 { left: 20px; }
+.furinhos5 { left: 20px; }
+.furinhos6 { right: 100px; }
+.furinhos7 { left: 120px; }
+.furinhos8 { left: 20px; }
 
 .basemonitor {
     position: absolute;

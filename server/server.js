@@ -1,4 +1,4 @@
-// Simple Express server to handle guestbook submissions securely
+// Express server for guestbook API
 import express from 'express';
 import cors from 'cors';
 
@@ -7,13 +7,12 @@ const PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' 
-    ? 'https://ldmrqs.com' 
+  origin: process.env.NODE_ENV === 'production'
+    ? 'https://ldmrqs.com'
     : '*',
   credentials: true
 }));
 app.use(express.json());
-app.use(express.static('.')); // Serve static files from current directory
 
 // Store last submission time per IP for rate limiting
 const rateLimitMap = new Map();
@@ -33,8 +32,8 @@ app.post('/api/guestbook', async (req, res) => {
   const lastSubmission = rateLimitMap.get(clientIP) || 0;
   if (now - lastSubmission < 30000) {
     const secondsLeft = Math.ceil((30000 - (now - lastSubmission)) / 1000);
-    return res.status(429).json({ 
-      error: `wait a few ${secondsLeft}s to send another one.` 
+    return res.status(429).json({
+      error: `wait a few ${secondsLeft}s to send another one.`
     });
   }
 
@@ -51,12 +50,9 @@ app.post('/api/guestbook', async (req, res) => {
     return res.status(400).json({ error: '❌ Message too long (max 1000 chars)' });
   }
 
-  // Here you would integrate with EmailJS using their Node.js SDK
-  // For now, this is a placeholder - install @emailjs/nodejs and configure
   try {
-    // Import EmailJS (you'll need to install: npm install @emailjs/nodejs)
     const emailjs = await import('@emailjs/nodejs').catch(() => null);
-    
+
     if (emailjs) {
       await emailjs.default.send(
         process.env.EMAILJS_SERVICE_ID || 'service_2di7gtn',
@@ -73,13 +69,10 @@ app.post('/api/guestbook', async (req, res) => {
         }
       );
     } else {
-      // Fallback: just log it if EmailJS isn't installed
       console.log('Guestbook message received:', message);
     }
 
-    // Update rate limit
     rateLimitMap.set(clientIP, now);
-
     res.json({ success: true });
   } catch (error) {
     console.error('Email send error:', error);
@@ -88,6 +81,6 @@ app.post('/api/guestbook', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
-  console.log(`📝 Guestbook API: http://localhost:${PORT}/api/guestbook`);
+  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Guestbook API: http://localhost:${PORT}/api/guestbook`);
 });
