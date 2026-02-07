@@ -38,7 +38,7 @@ a:hover {
     font-size: 36px;
     color: #8B0000;
     text-shadow: 2px 2px 4px #000000, 0 0 10px #8B0000;
-    font-family: "Chiller", "Creepster", fantasy;
+    font-family: "Tahoma", "Segoe UI", sans-serif;
     display: inline-block;
     margin: 0 20px;
 }
@@ -300,6 +300,7 @@ ul li:before {
     color: #8B0000;
     text-shadow: 2px 2px 4px #000000;
     font-size: 24px;
+    font-family: "Tahoma", "Segoe UI", sans-serif;
     margin: 0;
 }
 

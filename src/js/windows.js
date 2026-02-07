@@ -4,8 +4,11 @@ export function criarJanela(iframeDoc, titulo, conteudo, largura = 400, altura =
     if (largura > 550) largura = 550;
     if (altura > 320) altura = 320;
 
-    const centerX = Math.max(25, (600 - largura) / 2);
-    const centerY = Math.max(10, (380 - altura) / 2);
+    const bodyW = iframeDoc.documentElement.clientWidth;
+    const bodyH = iframeDoc.documentElement.clientHeight;
+    const taskbarHeight = 16;
+    const centerX = Math.max(0, (bodyW - largura) / 2);
+    const centerY = Math.max(0, (bodyH - taskbarHeight - altura) / 2);
 
     const janela = document.createElement('div');
     janela.className = 'janela janela-xp';
@@ -110,8 +113,22 @@ export function tornarArrastavel(iframeDoc, elemento, handle) {
         pos2 = pos4 - e.clientY;
         pos3 = e.clientX;
         pos4 = e.clientY;
-        elemento.style.top = (elemento.offsetTop - pos2) + "px";
-        elemento.style.left = (elemento.offsetLeft - pos1) + "px";
+
+        let newTop = elemento.offsetTop - pos2;
+        let newLeft = elemento.offsetLeft - pos1;
+
+        const taskbarHeight = 16;
+        const bodyW = iframeDoc.documentElement.clientWidth;
+        const bodyH = iframeDoc.documentElement.clientHeight;
+
+        const maxTop = Math.max(0, bodyH - taskbarHeight - elemento.offsetHeight);
+        if (newTop < 0) newTop = 0;
+        if (newTop > maxTop) newTop = maxTop;
+        if (newLeft < -elemento.offsetWidth + 50) newLeft = -elemento.offsetWidth + 50;
+        if (newLeft > bodyW - 50) newLeft = bodyW - 50;
+
+        elemento.style.top = newTop + "px";
+        elemento.style.left = newLeft + "px";
     }
 
     function closeDragElement() {

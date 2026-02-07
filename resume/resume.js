@@ -7,12 +7,12 @@ const pageTitle = app.dataset.pageTitle;
 
 // Navigation — single source of truth
 const NAV_ITEMS = [
-    { href: '/resume/', label: 'HOME', id: 'home' },
-    { href: '/resume/about.html', label: 'ABOUT', id: 'about' },
-    { href: '/resume/skills.html', label: 'SKILLS', id: 'skills' },
-    { href: '/resume/experience.html', label: 'EXPERIENCE', id: 'experience' },
-    { href: '/resume/projects.html', label: 'PROJECTS', id: 'projects' },
-    { href: '/resume/contact.html', label: 'CONTACT', id: 'contact' },
+    { href: '/resume/', label: 'home', id: 'home' },
+    { href: '/resume/about.html', label: 'about', id: 'about' },
+    { href: '/resume/skills.html', label: 'skills', id: 'skills' },
+    { href: '/resume/experience.html', label: 'experience', id: 'experience' },
+    { href: '/resume/projects.html', label: 'projects', id: 'projects' },
+    { href: '/resume/contact.html', label: 'contact', id: 'contact' },
 ];
 
 const PAGE_ORDER = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
@@ -52,15 +52,18 @@ function renderLayout(contentHTML) {
            </div>`;
 
     const footerNav = [];
-    if (prev) footerNav.push(`<a href="${getNavItem(prev).href}">&laquo; Back to ${prev}</a>`);
-    if (next) footerNav.push(`<a href="${getNavItem(next).href}">Next: ${next} &raquo;</a>`);
+    if (prev) footerNav.push(`<a href="${getNavItem(prev).href}">&laquo; ${prev}</a>`);
+    if (next) footerNav.push(`<a href="${getNavItem(next).href}">${next} &raquo;</a>`);
 
     return `
         <div class="header">${headerHTML}</div>
         <div class="nav-bar">${navHTML}</div>
         <div class="${wrapperClass}">${bodyHTML}</div>
         <div class="footer">
-            <center><p>${footerNav.join(' | ')}</p></center>
+            <center>
+                <p>${footerNav.join(' | ')}</p>
+                <p>&copy; ${resumeData.site.copyright}</p>
+            </center>
         </div>
     `;
 }
@@ -95,7 +98,7 @@ function renderHomePage(data) {
                         <p class="typing-text">> ${data.personal.welcomeMessage}</p>
                         <p class="typing-text">> <span class="blink">_</span></p>
                         <div class="enter-site">
-                            <p><a href="/resume/about.html">» ENTER MY DOMAIN «</a></p>
+                            <p><a href="/resume/about.html">» enter my domain «</a></p>
                         </div>
                     </center>
                 </div>
@@ -126,6 +129,10 @@ function renderAboutPage(data) {
             <h3>☠ who am i?</h3>
             <p>${data.personal.bio}</p><br>
             <p>${data.personal.funBio}</p>
+        </div>
+        <div class="profile-section">
+            <h3>☠ about this site</h3>
+            <p>${data.personal.aboutSite}</p>
         </div>
     `;
 }
@@ -197,7 +204,7 @@ function renderProjectsPage(data) {
     return `
         <center>
             <img src="/images/resume/hammer.gif" width="50" alt="Hammer Icon">
-            <p class="red-text">UNDER CONSTRUCTION</p>
+            <p class="red-text">under construction</p>
             ${data.projects.map(p => `
                 <div class="project-preview">
                     <h3><a href="${p.url}">${p.name}</a></h3>

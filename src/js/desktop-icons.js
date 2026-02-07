@@ -1,10 +1,12 @@
 import { criarJanela } from './windows.js';
 import { gerarIPFalso, salvarAutografo } from './guestbook.js';
 import { abrirDoom } from './doom.js';
+import { abrirPaint } from './paint.js';
 
 export function initDesktopIcons(iframeDoc) {
     const internetExplorer = iframeDoc.querySelector('.internet');
     const blocoDeNotas = iframeDoc.querySelector('.blocodenotas');
+    const paint = iframeDoc.querySelector('.paint');
     const lixeira = iframeDoc.querySelector('.lixeira');
     const botaoIniciar = iframeDoc.querySelector('.botão-iniciar');
 
@@ -91,6 +93,13 @@ c'mon, fren, leave your mark!
         });
     }
 
+    if (paint) {
+        paint.addEventListener('dblclick', (e) => {
+            e.stopPropagation();
+            abrirPaint(iframeDoc);
+        });
+    }
+
     if (lixeira) {
         lixeira.addEventListener('dblclick', (e) => {
             e.stopPropagation();
@@ -128,7 +137,70 @@ c'mon, fren, leave your mark!
 
     if (botaoIniciar) {
         botaoIniciar.addEventListener('click', () => {
-            alert('working on it!');
+            new Audio('/sounds/xp-error.mp3').play();
+            criarJanela(iframeDoc, 'copyright', `
+                <div style="
+                    display: flex;
+                    flex-direction: column;
+                    height: calc(100% + 20px);
+                    margin: -10px;
+                    background: #ece9d8;
+                    font-family: 'Tahoma', sans-serif;
+                    overflow: hidden;
+                ">
+                    <div style="
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+                        padding: 15px;
+                    ">
+                        <div style="
+                            width: 32px;
+                            height: 32px;
+                            flex-shrink: 0;
+                            background: radial-gradient(circle at 35% 35%, #ff4444, #cc0000, #880000);
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: white;
+                            font-weight: bold;
+                            font-size: 18px;
+                            box-shadow: 1px 2px 4px rgba(0,0,0,0.4);
+                            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+                        ">✕</div>
+                        <p style="font-size: 11px; margin: 0; color: #000;">
+                            &copy; 2025 ldmrqs — powered by nostalgia and too much coke zero.
+                        </p>
+                    </div>
+                    <div style="
+                        display: flex;
+                        justify-content: center;
+                        padding: 0 15px 12px;
+                    ">
+                        <button id="xp-error-ok" style="
+                            min-width: 75px;
+                            padding: 3px 0;
+                            font-size: 11px;
+                            font-family: Tahoma, sans-serif;
+                            cursor: pointer;
+                            background: #ece9d8;
+                            border: 1px solid #003c74;
+                            border-radius: 3px;
+                            box-shadow: 0 0 0 1px #fff inset, 1px 1px 0 0 #bbb;
+                        ">OK</button>
+                    </div>
+                </div>
+            `, 320, 120);
+
+            setTimeout(() => {
+                const okBtn = iframeDoc.getElementById('xp-error-ok');
+                if (okBtn) {
+                    okBtn.addEventListener('click', () => {
+                        okBtn.closest('.janela').remove();
+                    });
+                }
+            }, 50);
         });
     }
 }

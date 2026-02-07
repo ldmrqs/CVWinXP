@@ -1,12 +1,13 @@
 {
   "personal": {
-    "name": "larissa d. marques",
+    "name": "larissa.",
     "shortName": "larissa",
-    "title": "cloud infrastructure engineer",
+    "title": "infrastructure engineer @thoughtworks",
     "location": "brazil",
     "status": "ONLINE",
-    "bio": "my name's larissa d. marques. i'm a cloud infrastructure engineer based at brazil who just wants to make the internet fun again, keep systems reliable, scalable and observable.",
-    "funBio": "outside tech, i'm a multi-instrumentalist, horror nerd, gamer, bookworm and take care of a small zoo.",
+    "bio": "hello, fren. i'm larissa, i'm an infra engineer based in brasil. currently merging my infra skills with AI so engineers won't be paged at 3am. i want to make the internet fun again.",
+    "funBio": "i'm a multi-instrumentalist, horror nerd, gamer, bookworm and take care of a small zoo.",
+    "aboutSite": "this website is my love letter to my first contact with a computer. windows xp was my first ever OS in a huge white-beige computer, where I used to watch a lot of youtube videos related to naruto and games, play games on clickgames.com.br & habbo. the internet was my first safe space, and i miss it dearly. i'm a sucker for retro tech, not only computers but anything retro related. camrecorders, digital cams, old microphones, guitars, you name it.",
     "tagline": "hello, fren.",
     "welcomeMessage": "my name is larissa and i just want to make the internet fun again."
   },
@@ -35,6 +36,11 @@
 
   "skills": [
     {
+      "category": "AI & ML",
+      "percentage": 90,
+      "tools": "AIOps, AI Agents, LLMs, MCP, RAG, Vector Databases, Embeddings, AI Evaluation, Prompt Engineering, MLOps"
+    },
+    {
       "category": "infrastructure, cloud & observability",
       "percentage": 90,
       "tools": "AWS, Kubernetes, Bash, Grafana, Datadog, Prometheus, Opsgenie, Logz, Amplitude, Dynatrace, GIT, Terraform"
@@ -61,6 +67,19 @@
   "experience": {
     "work": [
       {
+        "title": "ai engineer — AIOps DAMO team",
+        "company": "thoughtworks",
+        "period": "2025 - present",
+        "responsibilities": [
+          "lead AI Evaluation standards for AIOps team, defining assessment frameworks for AI systems across client projects.",
+          "built AI agents for automated incident investigation using MCP, reducing resolution time to under 5 minutes with zero human intervention.",
+          "developed evaluation pipelines with custom metrics for investigation quality assessment.",
+          "model training for incident management.",
+          "designed self-healing data pipelines with Databricks for automated anomaly detection.",
+          "integrated AI workflows with AWS Bedrock, OpenTelemetry, and enterprise platforms."
+        ]
+      },
+      {
         "title": "infrastructure engineer",
         "company": "thoughtworks",
         "period": "2025 - present",
@@ -72,20 +91,6 @@
           "improved system observability using Datadog, and Dynatrace, proactively monitoring metrics and alerts.",
           "implemented CI/CD pipelines using GitLab, automating deployment processes and reducing time to production.",
           "collaborated with cross-functional teams to design and implement infrastructure solutions that meet business requirements."
-        ]
-      },
-      {
-        "title": "support engineer intern",
-        "company": "e-Core",
-        "period": "2023 - 2025",
-        "responsibilities": [
-          "troubleshot and optimized Kubernetes clusters by monitoring Pods, Nodes, and Containers using Bash.",
-          "managed AWS EC2 instances and Auto Scaling Groups.",
-          "utilized Postman & Databricks for searching, editing, and updating data.",
-          "monitored system performance using Datadog and Grafana.",
-          "triaged and resolved alerts using Jira and Opsgenie, escalating critical issues to development teams.",
-          "created internal knowledge base articles to increase the team's procedures.",
-          "utilized Logz.io & Amplitude to analyze user logs and behavior on the client's service."
         ]
       }
     ],
@@ -99,13 +104,26 @@
     ],
     "volunteer": [
       {
-        "title": "AI engineer - AIOps DAMO team",
-        "organization": "thoughtworks",
-        "period": "present",
+        "title": "mentor",
+        "organization": "aceleradora inclusiva",
+        "period": "oct 2025 - dec 2025",
         "responsibilities": [
-          "contributed to the development of internal AIOps initiatives aimed at enhancing observability automation.",
-          "designed intelligent troubleshooting workflows using MCP to guide LLMs through trace analysis, logs & metrics.",
-          "prompted and refined AI agents to automate investigations, improve reliability, reduce manual analysis, support autonomous operations and, extract meaningful patterns from distributed system events."
+          "1:1 mentor for aspiring developers in an inclusive tech acceleration program.",
+          "guide mentees through React, JavaScript, Git/GitHub, and professional development.",
+          "conduct weekly mentoring sessions covering technical skills and career preparation.",
+          "support interview preparation, resume building, and portfolio development.",
+          "help mentees build confidence and overcome barriers to entering the tech industry."
+        ]
+      },
+      {
+        "title": "tech blog contributor — AI & AIOps",
+        "organization": "thoughtworks",
+        "period": "2025 - present",
+        "responsibilities": [
+          "published 3 articles on the thoughtworks insights blog, sharing research and real-world experiments with AI applied to infrastructure and operations.",
+          "infusing trusted AI coding assistants into SRE investigation — explored how AI coding assistants can automate the SRE investigation loop (triage, diagnosis, remediation) using evals-first approaches.",
+          "AI evals for MCP in AIOps — presented a three-layer evaluation framework for MCP-driven AIOps workflows in a real-world banking case study.",
+          "deep kernel-level AI RCA with MCP — demonstrated how AI agents with MCP can access real-time kernel-level telemetry for faster and more accurate root cause analysis."
         ]
       },
       {
@@ -118,10 +136,8 @@
       }
     ],
     "certifications": [
-      "AWS Certified AI Practitioner (AIF-C01) (In Progress)",
-      "Amazon AWS Cloud Practitioner (CLF-C01) (In Progress)",
-      "Dynatrace Associate (In Progress)",
-      "Generative AI Leader (In Progress)"
+      "Databricks Certified GenAI Engineer",
+      "Amazon Certified AWS Cloud Practitioner (CLF-C01)"
     ]
   },
 
@@ -135,15 +151,15 @@
     },
     {
       "name": "you will like this",
-      "url": "https://github.com/ldmrqs/dictionary",
+      "url": "https://github.com/ldmrqs/youwill-like-this",
       "description": "an AI experiental project where an AI bot gives you music recommendations.",
-      "tech": "aws bedrock, docker, terraform, fastAPI, pydantic"
+      "tech": "fastAPI, ollama, pydantic"
     },
     {
-      "name": "Tech Dictionary",
-      "url": "https://github.com/ldmrqs/dictionary",
-      "description": "I was tired of having to read a lot of different content on the internet to learn a new language, so I decided to create a simple, straightforward approach to my problem: a Dictionary for study and project purposes.",
-      "tech": "markdown"
+      "name": "the pilots knowledgebase",
+      "url": "https://github.com/ldmrqs/the-pilots-knowledge-base",
+      "description": "a rag-powered chatbot that answers questions about my favorite band twenty one pilots. a fun project to practice RAG and LLMs.",
+      "tech": "pydantic AI, ChromaDB, Streamlit"
     }
   ],
 
