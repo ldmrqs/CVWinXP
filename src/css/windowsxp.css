@@ -31,6 +31,183 @@
     font-family: 'Segoe UI', Tahoma;
 }
 
+body {
+    margin: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+/* Tela de login Windows XP */
+.xp-login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Tahoma', 'Segoe UI', sans-serif;
+}
+
+.xp-login {
+    transition: opacity 2s ease;
+}
+
+.xp-login.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.xp-login-top {
+    height: 50px;
+    background: linear-gradient(to bottom, #0a246a, #0a246a);
+    flex-shrink: 0;
+}
+
+.xp-login-main {
+    flex: 1;
+    background: linear-gradient(to bottom, #3168d5, #5a9ae6 40%, #6daef0 60%, #3168d5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.xp-login-left {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 20px 15px 20px 20px;
+}
+
+.xp-login-logo-img {
+    width: 50px;
+    margin-bottom: -10px;
+    position: relative;
+    left: 50px;
+    align-self: center;
+}
+
+.xp-login-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.xp-logo-microsoft {
+    font-size: 5px;
+    position: relative;
+    left: 32px;
+    color: white;
+    letter-spacing: 0.5px;
+    font-style: italic;
+    margin-bottom: -1px;
+}
+
+.xp-logo-text {
+    display: flex;
+    align-items: baseline;
+}
+
+.xp-logo-windows {
+    position: relative;
+    left: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+.xp-logo-xp {
+    position: relative;
+    left: 33px;
+    top: -6px;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: italic;
+    color: #ff6600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    margin-left: 1px;
+    vertical-align: super;
+}
+
+.xp-login-msg {
+    position: relative;
+    left: 1px;
+    top: -15px;
+    font-size: 11px;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.xp-login-divider {
+    width: 1px;
+    height: 80px;
+    background: rgba(255,255,255,0.4);
+    margin: 0 25px;
+}
+
+.xp-login-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.xp-login-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.xp-login-user:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+.xp-login-avatar-img {
+    width: 40px;
+    height: 40px;
+    border: 2px solid white;
+    border-radius: 4px;
+    object-fit: cover;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+}
+
+.xp-login-name {
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+.xp-login-bottom {
+    height: 35px;
+    background: linear-gradient(to bottom, #0a246a, #0a246a);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    flex-shrink: 0;
+}
+
+.xp-login-shutdown-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 5px;
+}
+
+.xp-login-turn-off {
+    font-size: 8px;
+    color: white;
+    cursor: default;
+}
+
 /*estilização dos programas no desktop*/
 .internet {
     display: flex;
@@ -46,7 +223,7 @@
     width: 15px;
     height: 15px;
     position: relative;
-    right: 30px;
+    right: 22px;
 }
 
 .internet span {
@@ -57,38 +234,93 @@
     font-family: 'Segoe UI', Tahoma, sans-serif;
     text-shadow: 1px 1px 2px black;
     position: relative;
-    right: 30px;
+    right: 20px;
     user-select: none;
     cursor: default;
 }
 
-.blocodenotas img {
-    width: 37px;
-    height: 37px;
+.blocodenotas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    padding: 5px;
     position: relative;
-    right: 3px
+    z-index: 1;
+}
+
+.blocodenotas img {
+    margin-top: -8px;
+    width: 35px;
+    height: 35px;
+    position: relative;
+    right: 20px;
 }
 
 .blocodenotas span {
-    position: relative;
-    right: 40px;
+    font-size: 5px;
     padding: 2px 4px;
+    margin-top: -8px;
     border-radius: 3px;
     color: white;
     font-family: 'Segoe UI', Tahoma, sans-serif;
     text-shadow: 1px 1px 2px black;
+    position: relative;
+    right: 20px;
     user-select: none;
     cursor: default;
 }
 
-.lixeira img {
-    width: 15px;
-    height: 15px;
+.paint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    padding: 5px;
     position: relative;
-    right: 5px;
+    z-index: 1;
 }
 
-.lixeira span {
+.paint img {
+    margin-top: -8px;
+    width: 35px;
+    height: 35px;
+    position: relative;
+    right: 20px;
+}
+
+.paint span {
+    font-size: 5px;
+    padding: 2px 4px;
+    margin-top: -8px;
+    border-radius: 3px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    text-shadow: 1px 1px 2px black;
+    position: relative;
+    right: 20px;
+    user-select: none;
+    cursor: default;
+}
+
+.winamp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    padding: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+.winamp img {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    right: 20px;
+}
+
+.winamp span {
     font-size: 5px;
     padding: 2px 4px;
     border-radius: 3px;
@@ -96,7 +328,9 @@
     font-family: 'Segoe UI', Tahoma, sans-serif;
     text-shadow: 1px 1px 2px black;
     position: relative;
-    right: 30px;
+    right: 20px;
+    user-select: none;
+    cursor: default;
 }
 
 .lixeira {
@@ -113,18 +347,18 @@
     width: 15px;
     height: 15px;
     position: relative;
-    right: 30px;
+    right: 20px;
 }
 
 .lixeira span {
     font-size: 5px;
-    padding: 2px 4px;
+    padding: 5px 4px;
     border-radius: 3px;
     color: white;
     font-family: 'Segoe UI', Tahoma, sans-serif;
     text-shadow: 1px 1px 2px black;
     position: relative;
-    right: 30px;
+    right: 20px;
     user-select: none;
     cursor: default;
 }

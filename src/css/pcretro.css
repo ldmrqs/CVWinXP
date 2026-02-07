@@ -31,10 +31,34 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     background: url("https://cdn.editorji.com/66fa8edc964fa_linkin-park-1.jpeg") no-repeat center center;
     background-size: cover;
+    box-shadow:
+        0 0 50px rgba(200, 210, 220, 0.7),
+        0 0 120px rgba(200, 210, 220, 0.5),
+        0 0 250px rgba(200, 210, 220, 0.35),
+        0 0 450px rgba(200, 210, 220, 0.2),
+        0 0 700px rgba(200, 210, 220, 0.1);
+    animation: screenGlow 4s ease-in-out infinite;
+}
 
+@keyframes screenGlow {
+    0%, 100% {
+        box-shadow:
+            0 0 30px rgba(200, 210, 220, 0.4),
+            0 0 80px rgba(200, 210, 220, 0.3),
+            0 0 160px rgba(200, 210, 220, 0.18),
+            0 0 300px rgba(200, 210, 220, 0.1),
+            0 0 500px rgba(200, 210, 220, 0.05);
+    }
+    50% {
+        box-shadow:
+            0 0 80px rgba(200, 210, 220, 0.9),
+            0 0 180px rgba(200, 210, 220, 0.7),
+            0 0 350px rgba(200, 210, 220, 0.5),
+            0 0 600px rgba(200, 210, 220, 0.3),
+            0 0 900px rgba(200, 210, 220, 0.18);
+    }
 }
 
 /* Overlay preto para quando o monitor estiver desligado */
@@ -48,8 +72,13 @@ body {
     background-color: #000;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 1.5s ease;
     z-index: 9999;
+}
+
+.tela.desligado {
+    box-shadow: none;
+    animation: none;
 }
 
 .tela.desligado::after {
@@ -343,5 +372,61 @@ h3 {
     right: 15px;
     bottom: -2px;
     opacity: 30%;
+}
+
+/* Sticky note no gabinete */
+.sticky-note {
+    position: absolute;
+    left: 130px;
+    top: -40px;
+    width: 120px;
+    height: 120px;
+    transform: rotate(5deg);
+}
+
+.sticky-note-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.sticky-note-text {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    right: 15px;
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 9px;
+    color: #333;
+    line-height: 1.4;
+    transform: rotate(-2deg);
+    text-align: center;
+}
+
+/* Mobile warning overlay */
+.mobile-warning {
+    display: none;
+}
+
+@media (max-width: 850px) and (orientation: portrait) {
+    .mobile-warning {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 99999;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .mobile-warning-content {
+        color: #c0c0c0;
+        font-family: 'Tahoma', 'Segoe UI', sans-serif;
+        padding: 30px;
+    }
 }
 
