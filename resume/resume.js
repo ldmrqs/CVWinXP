@@ -33,7 +33,7 @@ function renderLayout(contentHTML) {
 
     const headerHTML = page === 'home'
         ? `<img src="/images/resume/skull.gif" class="skull-gif">
-           <h1 class="site-title">welcome to my cv</h1>
+           <h1 class="site-title">welcome</h1>
            <img src="/images/resume/skull.gif" class="skull-gif">`
         : `<h2 class="page-title">${pageTitle}</h2>`;
 
@@ -71,19 +71,7 @@ function renderLayout(contentHTML) {
 // Page renderers
 function renderHomePage(data) {
     return `
-        <div class="sidebar-left">
-            <div class="profile-box">
-                <h3>☆ profile ☆</h3>
-                <center><img src="/images/resume/bat.gif" width="80"></center>
-                <p><strong>Name:</strong> ${data.personal.shortName}</p>
-                <p><strong>Status:</strong> <span class="online-status">${data.personal.status}</span></p>
-            </div>
-            <div class="interests-box">
-                <h3>♥ interests ♥</h3>
-                <ul>${data.interests.map(i => `<li>${i}</li>`).join('')}</ul>
-            </div>
-        </div>
-        <div class="main-content">
+        <div class="main-content" style="width: 100%;">
             <div class="window">
                 <div class="window-header">
                     <span>welcome.exe</span>
@@ -94,7 +82,6 @@ function renderHomePage(data) {
                 <div class="window-content">
                     <center>
                         <img src="/images/resume/matrix.gif" width="150">
-                        <p class="typing-text">> ${data.personal.tagline}</p>
                         <p class="typing-text">> ${data.personal.welcomeMessage}</p>
                         <p class="typing-text">> <span class="blink">_</span></p>
                         <div class="enter-site">
@@ -104,28 +91,12 @@ function renderHomePage(data) {
                 </div>
             </div>
         </div>
-        <div class="sidebar-right">
-            <div class="music-box">
-                <h3>♪ now playing ♪</h3>
-                <marquee behavior="scroll" direction="up" height="60">
-                    ${data.nowPlaying.map(s => `• ${s}<br>`).join('')}
-                </marquee>
-            </div>
-            <div class="stats-box">
-                <h3>☆ stats ☆</h3>
-                <p>visitors: <span class="counter">${data.stats.visitors}</span></p>
-                <p>friends: ${data.stats.friends}</p>
-                <p>comments: ${data.stats.comments}</p>
-                <p>last login: ${data.stats.lastLogin}</p>
-            </div>
-        </div>
     `;
 }
 
 function renderAboutPage(data) {
     return `
         <div class="profile-section">
-            <img src="/images/resume/vampire.gif" width="80" style="float: right;">
             <h3>☠ who am i?</h3>
             <p>${data.personal.bio}</p><br>
             <p>${data.personal.funBio}</p>
@@ -207,7 +178,7 @@ function renderProjectsPage(data) {
             <p class="red-text">under construction</p>
             ${data.projects.map(p => `
                 <div class="project-preview">
-                    <h3><a href="${p.url}">${p.name}</a></h3>
+                    <h3><a href="${p.url}" target="_blank" rel="noopener">${p.name}</a></h3>
                     <p>${p.description}</p>
                     ${p.details ? `<p>${p.details}</p>` : ''}
                     <p>built with: ${p.tech}</p>
@@ -225,8 +196,8 @@ function renderContactPage(data) {
             <div class="contact-info">
                 <h3>☠ reach out</h3>
                 <p>email: <a href="mailto:${data.contact.email}">${data.contact.email}</a></p>
-                <p>linkedIn: <a href="${data.contact.linkedin.url}">${data.contact.linkedin.handle}</a></p>
-                <p>gitHub: <a href="${data.contact.github.url}">${data.contact.github.handle}</a></p>
+                <p>linkedIn: <a href="${data.contact.linkedin.url}" target="_blank" rel="noopener">${data.contact.linkedin.handle}</a></p>
+                <p>gitHub: <a href="${data.contact.github.url}" target="_blank" rel="noopener">${data.contact.github.handle}</a></p>
             </div>
             <div class="guestbook-link">
                 <img src="/images/resume/arrowdown.gif">

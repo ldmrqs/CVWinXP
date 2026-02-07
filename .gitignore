@@ -1,15 +1,6 @@
-# Environment variables (CRITICAL - never commit this!)
 .env
-
-# Dependencies
 node_modules/
-
-# Logs
 *.log
 npm-debug.log*
-
-# Build output
 dist/
-
-# OS files
 .DS_Store

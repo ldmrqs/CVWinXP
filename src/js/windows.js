@@ -1,5 +1,90 @@
 let zIndexCounter = 100;
 
+const taskbarItems = new Map();
+
+const ICON_MAP = {
+    'internet explorer': '/images/desktop/internetexplorer.png',
+    'notepad':           '/images/desktop/blocodenotas.png',
+    'paint':             '/images/desktop/paint.png',
+    'winamp':            '/images/desktop/winamp-icon.png',
+    'trash':             '/images/desktop/lixeirawinxp.png',
+    'doom':              '/images/desktop/doom2.png',
+    'cmd.exe':           '/images/desktop/cmd.png',
+};
+const DEFAULT_ICON = '/images/desktop/windows-xp-logo.png';
+
+function getIconForTitle(titulo) {
+    const lower = titulo.toLowerCase();
+    for (const [keyword, path] of Object.entries(ICON_MAP)) {
+        if (lower.includes(keyword)) return path;
+    }
+    return DEFAULT_ICON;
+}
+
+export function getNextZIndex() {
+    return ++zIndexCounter;
+}
+
+export function addToTaskbar(iframeDoc, janelaEl, titulo) {
+    const container = iframeDoc.querySelector('.taskbar-items');
+    if (!container) return null;
+
+    const btn = iframeDoc.createElement('div');
+    btn.className = 'taskbar-item pressed';
+
+    const icon = iframeDoc.createElement('img');
+    icon.className = 'taskbar-item-icon';
+    icon.src = getIconForTitle(titulo);
+    icon.alt = '';
+
+    const text = iframeDoc.createElement('span');
+    text.className = 'taskbar-item-text';
+    text.textContent = titulo;
+
+    btn.appendChild(icon);
+    btn.appendChild(text);
+
+    btn.addEventListener('click', () => {
+        if (janelaEl.style.display === 'none') {
+            
+            janelaEl.style.display = '';
+            janelaEl.style.zIndex = ++zIndexCounter;
+            setActiveTaskbarItem(janelaEl);
+        } else if (btn.classList.contains('pressed')) {
+            janelaEl.style.display = 'none';
+            btn.classList.remove('pressed');
+        } else {
+            janelaEl.style.zIndex = ++zIndexCounter;
+            setActiveTaskbarItem(janelaEl);
+        }
+    });
+
+    container.appendChild(btn);
+    taskbarItems.set(janelaEl, btn);
+
+    setActiveTaskbarItem(janelaEl);
+
+    return btn;
+}
+
+export function removeFromTaskbar(janelaEl) {
+    const btn = taskbarItems.get(janelaEl);
+    if (btn) {
+        btn.remove();
+        taskbarItems.delete(janelaEl);
+    }
+}
+
+export function setActiveTaskbarItem(janelaEl) {
+    for (const [, btn] of taskbarItems) {
+        btn.classList.remove('pressed');
+    }
+    const btn = taskbarItems.get(janelaEl);
+    if (btn) {
+        btn.classList.add('pressed');
+    }
+}
+
 export function criarJanela(iframeDoc, titulo, conteudo, largura = 400, altura = 300, usarIframe = false) {
     if (largura > 550) largura = 550;
     if (altura > 320) altura = 320;
@@ -38,14 +123,21 @@ export function criarJanela(iframeDoc, titulo, conteudo, largura = 400, altura =
 
     const botaoMinimizar = document.createElement('div');
     botaoMinimizar.className = 'botao-janela botao-minimizar';
-    botaoMinimizar.addEventListener('click', () => { janela.style.display = 'none'; });
+    botaoMinimizar.addEventListener('click', () => {
+        janela.style.display = 'none';
+        const btn = taskbarItems.get(janela);
+        if (btn) btn.classList.remove('pressed');
+    });
 
     const botaoMaximizar = document.createElement('div');
     botaoMaximizar.className = 'botao-janela botao-maximizar';
 
     const botaoFechar = document.createElement('div');
     botaoFechar.className = 'botao-janela botao-fechar';
-    botaoFechar.addEventListener('click', () => { janela.remove(); });
+    botaoFechar.addEventListener('click', () => {
+        removeFromTaskbar(janela);
+        janela.remove();
+    });
 
     botoes.appendChild(botaoMinimizar);
     botoes.appendChild(botaoMaximizar);
@@ -81,12 +173,19 @@ export function criarJanela(iframeDoc, titulo, conteudo, largura = 400, altura =
     janela.appendChild(barraTitulo);
     janela.appendChild(conteudoDiv);
 
+    janela.addEventListener('mousedown', () => {
+        janela.style.zIndex = ++zIndexCounter;
+        setActiveTaskbarItem(janela);
+    });
+
     tornarArrastavel(iframeDoc, janela, barraTitulo);
 
     const desktop = iframeDoc.querySelector('.desktop');
     if (desktop) {
         desktop.appendChild(janela);
     }
+
+    addToTaskbar(iframeDoc, janela, titulo);
 
     return janela;
 }
@@ -104,6 +203,7 @@ export function tornarArrastavel(iframeDoc, elemento, handle) {
         iframeDoc.onmouseup = closeDragElement;
         iframeDoc.onmousemove = elementDrag;
         elemento.style.zIndex = ++zIndexCounter;
+        setActiveTaskbarItem(elemento);
     }
 
     function elementDrag(e) {

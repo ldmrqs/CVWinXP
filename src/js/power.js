@@ -1,6 +1,7 @@
 let sistemaLigado = false;
 let iframeDocRef = null;
 let shutdownFn = null;
+let skipLoginOnBoot = false;
 
 const pcSound = new Audio('/sounds/oldpcsound.mp3');
 pcSound.loop = true;
@@ -14,6 +15,10 @@ export function shutdown() {
     if (shutdownFn && sistemaLigado) shutdownFn();
 }
 
+export function setSkipLogin(val) {
+    skipLoginOnBoot = val;
+}
+
 export function initPower() {
     const monitor = document.querySelector('.tela');
     const ledMonitor = document.querySelector('.ledpower');
@@ -21,7 +26,6 @@ export function initPower() {
     const botaoMonitor = document.querySelector('.botaopower');
     const botaoGabinete = document.querySelector('.botaogabinete');
 
-    // Começa desligado
     monitor.classList.add('desligado');
     ledMonitor.style.background = '#333';
     ledMonitor.style.boxShadow = 'none';
@@ -39,12 +43,16 @@ export function initPower() {
             ledGabinete.style.boxShadow = '0 0 20px 5px #00ff00';
             pcSound.play();
 
-            // Show login screen
             if (iframeDocRef) {
                 const loginScreen = iframeDocRef.querySelector('.xp-login');
                 if (loginScreen) {
-                    loginScreen.style.display = '';
-                    loginScreen.classList.remove('hidden');
+                    if (skipLoginOnBoot) {
+                        loginScreen.style.display = 'none';
+                        skipLoginOnBoot = false;
+                    } else {
+                        loginScreen.style.display = '';
+                        loginScreen.classList.remove('hidden');
+                    }
                 }
             }
         } else {
@@ -56,7 +64,6 @@ export function initPower() {
             pcSound.pause();
             pcSound.currentTime = 0;
 
-            // Reset login screen for next boot
             if (iframeDocRef) {
                 const loginScreen = iframeDocRef.querySelector('.xp-login');
                 if (loginScreen) {

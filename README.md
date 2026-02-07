@@ -1,72 +1,113 @@
-# Retro PC Interactive Resume - Windows XP Emulation
+# Retro PC Interactive Resume — Windows XP Emulation
 
-Welcome to my interactive resume project! This is a retro-inspired portfolio site that emulates a classic **Windows XP** PC. It’s not just a creative way to present my work, but also a tribute to the technology of the early 2000s, designed to capture the nostalgia of my first experiences with computers.
+An interactive portfolio site that emulates a classic **Windows XP** desktop inside a retro CRT monitor, built entirely from scratch. More than just a resume — it's a love letter to the early 2000s internet and the first PC I ever used.
 
-![Descrição da Imagem](pcretro.png)
-
----
-
-## **Why Retro?**
-
-- **Personal Connection**: This project reflects my love for the aesthetics of the early 2000s. The look and feel are inspired by the first PC I used — an old, beige, tube monitor. It’s where I spent hours playing games, chatting on MSN, browsing Orkut, and listening to music. This site is a tribute to those moments.
-  
-- **Band Tribute**: The wallpaper featured in the project is dedicated to one of my favorite bands, which has been a huge part of my life since childhood.
-
-- **The First OS**: The design and feel of the site pay homage to **Windows XP**, the first operating system I ever used. It's my way of honoring that era of computing.
+![Preview](public/images/monitor/pcretro.png)
 
 ---
 
-## **Project Concept**
+## About
 
-- **Minimalist Design**: I've kept the design simple yet nostalgic, featuring only three classic programs — **Internet Explorer**, **Notepad**, and **Recycle Bin**. The simplicity adds to the retro aesthetic, evoking the look and functionality of old-school desktops.
+This project reflects my love for retro tech aesthetics. The entire experience is designed to look and feel like booting up a beige CRT monitor running Windows XP — complete with scanline effects, a glowing screen, sound effects, and fully interactive desktop applications.
 
-- **Future Features**: While the taskbar won’t be interactive for now, I’m considering adding interactivity to it in the future as I continue to develop the project.
-
----
-
-## **How It Works**
-
-- **Interactive Experience**: Clicking on **Internet Explorer** takes you to my resume presented in a fun, retro-inspired style, reminiscent of the early web. It’s a straightforward, nostalgic browsing experience showcasing my professional journey, education, and contact information.
-
-- **Notepad Plans**: I have future plans for **Notepad** to incorporate some interactive features, but this will come after the foundational design is completed.
+The wallpaper is a tribute to one of my favorite bands, and the overall design is inspired by my childhood memories of MSN, Orkut, and clickgames.com.br.
 
 ---
 
-## **Tech Stack**
+## Features
 
-This project is built using the following technologies:
-
-- **HTML**: Structure and content
-- **CSS**: Styling and layout
-- **JavaScript**: Future integration for interactivity
-
----
-
-## **Inspirations**
-
-- **Retro PCs**: Inspired by the beige tube monitors from the early 2000s, which were my first introduction to computers.
-- **Windows XP Emulator**: The site [TurboWarp](https://turbowarp.org/235298186/fullscreen) served as a design reference for the Windows XP emulation.
-- **Developer Ste_16bit**: Inspired by Ste_16bit's retro personal PC project shared on [Twitter](https://twitter.com/ste_16bit).
-
----
-
-## **Current Status**
-
-- The site is currently live with HTML and CSS fully implemented.
-- **JavaScript** for interactivity is planned for future updates once the aesthetic elements are complete.
-- If you'd like to check it out, feel free to visit the live site or follow along with the GitHub project.
+- **CRT Monitor** — a fully styled retro monitor with power button, LED indicators, scanlines, screen glow animation, and sticky notes
+- **Windows XP Login Screen** — click your username to log in, with a fade transition
+- **Internet Explorer** — opens a retro-themed resume site styled like a 2000s personal homepage (dark theme, skull GIFs, and all), with pages for about, skills, experience, projects, and contact
+- **Notepad (Guestbook)** — visitors can leave messages that get sent via email through a backend API
+- **Paint** — a working MS Paint clone with pencil, brush, eraser, fill bucket, line, rectangle tools, color palette, and brush sizes
+- **Winamp** — a fully functional music player with a pixel-perfect Winamp 2.x skin, spectrum visualizer, playlist, shuffle/repeat, and transport controls
+- **Trash (Recycle Bin)** — contains a hidden copy of DOOM that runs via Archive.org embed
+- **Command Prompt** — a fake terminal with commands like `help`, `whoami`, `dir`, `ping`, `color`, `matrix` (rain effect), and hidden easter eggs
+- **Taskbar** — functional taskbar with window management (minimize, restore, focus)
+- **Clock** — live clock displayed in the taskbar
+- **Sound Effects** — mouse click and keyboard typing sounds throughout the experience
+- **Mobile Warning** — a message prompting users to switch to desktop for the full experience
 
 ---
 
-## **Check It Out!**
+## Tech Stack
 
-- **Live site**: [cv.ldmrqs.com](http://cv.ldmrqs.com)
-- **GitHub repository**: [Retro PC Interactive Resume](https://github.com/ldmrqs/CurriculoWinXP)
+| Layer | Technologies |
+|-------|-------------|
+| Frontend | HTML, CSS, JavaScript (vanilla) |
+| Build Tool | Vite |
+| Backend | Node.js, Express |
+| Email | EmailJS |
+| Deployment | Hosted at [cv.ldmrqs.com](https://cv.ldmrqs.com) |
 
 ---
 
-## **Future Plans**
+## Project Structure
 
-- Integrate JavaScript for more interactive features.
-- Enhance the taskbar and possibly introduce more classic programs.
-- Create a video demonstrating the website in action.
+```
+├── index.html              # CRT monitor shell (parent page)
+├── windowsxp.html          # Windows XP desktop (loaded in iframe)
+├── resume/                 # Resume site pages (Internet Explorer content)
+│   ├── index.html
+│   ├── about.html
+│   ├── skills.html
+│   ├── experience.html
+│   ├── projects.html
+│   ├── contact.html
+│   └── resume.js
+├── src/
+│   ├── css/
+│   │   ├── pcretro.css     # CRT monitor styles
+│   │   ├── windowsxp.css   # Windows XP desktop styles
+│   │   └── resume.css      # Resume site styles (retro dark theme)
+│   └── js/
+│       ├── main.js          # Entry point (power, sounds, iframe setup)
+│       ├── power.js         # Monitor/PC power toggle logic
+│       ├── windows.js       # Window manager (create, drag, taskbar)
+│       ├── desktop-icons.js # Desktop icon double-click handlers
+│       ├── clock.js         # Taskbar clock
+│       ├── winamp.js        # Winamp music player
+│       ├── paint.js         # MS Paint clone
+│       ├── doom.js          # DOOM embed
+│       ├── terminal.js      # Command Prompt simulator
+│       ├── guestbook.js     # Guestbook (Notepad) logic
+│       └── api-config.js    # API URL configuration
+├── server/
+│   └── server.js            # Express API for guestbook emails
+├── data/
+│   └── resume-data.json     # All resume content (JSON)
+├── public/                  # Static assets (images, sounds, music)
+├── vite.config.js
+└── package.json
+```
+
+---
+
+## Getting Started
+
+```bash
+# install dependencies
+npm install
+
+# run dev server (frontend + backend)
+npm run dev
+
+# build for production
+npm run build
+```
+
+---
+
+## Inspirations
+
+- The beige CRT monitors from the early 2000s
+- [TurboWarp Windows XP Emulator](https://turbowarp.org/235298186/fullscreen) for design reference
+- [Ste_16bit's retro PC project](https://twitter.com/ste_16bit)
+
+---
+
+## Links
+
+- **Live site**: [cv.ldmrqs.com](https://cv.ldmrqs.com)
+- **GitHub**: [github.com/ldmrqs/CurriculoWinXP](https://github.com/ldmrqs/CurriculoWinXP)
