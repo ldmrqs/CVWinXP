@@ -1,21 +1,20 @@
-import { initPower, setIframeDoc, shutdown } from './power.js';
+import { initPower, setIframeDoc, shutdown, setSkipLogin } from './power.js';
 import { initClock } from './clock.js';
 import { initDesktopIcons } from './desktop-icons.js';
 
-// Power toggle works on the parent document (index.html)
 initPower();
 
-// Everything else needs the iframe to be loaded
+window.shutdownPC = shutdown;
+window.setSkipLoginPC = setSkipLogin;
+
 window.addEventListener('load', function () {
     const iframe = document.querySelector('iframe');
     if (!iframe) return;
 
     const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
 
-    // Pass iframeDoc to power module for login screen control
     setIframeDoc(iframeDoc);
 
-    // Setup login screen click handler
     const loginUser = iframeDoc.getElementById('xp-login-user');
     if (loginUser) {
         loginUser.addEventListener('click', () => {
@@ -29,14 +28,12 @@ window.addEventListener('load', function () {
         });
     }
 
-    // Setup shutdown button on login screen
     const shutdownBtn = iframeDoc.querySelector('.xp-login-bottom');
     if (shutdownBtn) {
         shutdownBtn.style.cursor = 'pointer';
         shutdownBtn.addEventListener('click', () => shutdown());
     }
 
-    // Sound effects for mouse clicks and keyboard typing
     const clickSound = new Audio('/sounds/mouse-clicking-sound.mp3');
     const typeSound = new Audio('/sounds/keyboard-typing-sound.mp3');
     clickSound.volume = 0.3;
@@ -52,11 +49,29 @@ window.addEventListener('load', function () {
         typeSound.play();
     }
 
-    // Listen on both parent and iframe
     document.addEventListener('click', playClick);
     iframeDoc.addEventListener('click', playClick);
     document.addEventListener('keydown', playType);
     iframeDoc.addEventListener('keydown', playType);
+
+    const observer = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+            for (const node of mutation.addedNodes) {
+                if (node.nodeType !== 1) continue;
+                const iframes = node.tagName === 'IFRAME' ? [node] : node.querySelectorAll?.('iframe') || [];
+                iframes.forEach(nested => {
+                    nested.addEventListener('load', () => {
+                        try {
+                            const nestedDoc = nested.contentDocument || nested.contentWindow.document;
+                            nestedDoc.addEventListener('click', playClick);
+                            nestedDoc.addEventListener('keydown', playType);
+                        } catch (e) { /* cross-origin iframe, skip */ }
+                    });
+                });
+            }
+        }
+    });
+    observer.observe(iframeDoc.body, { childList: true, subtree: true });
 
     initClock(iframeDoc);
     initDesktopIcons(iframeDoc);

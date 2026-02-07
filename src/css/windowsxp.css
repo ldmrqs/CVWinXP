@@ -38,7 +38,6 @@ body {
     height: 100%;
 }
 
-/* Tela de login Windows XP */
 .xp-login {
     position: fixed;
     top: 0;
@@ -208,7 +207,6 @@ body {
     cursor: default;
 }
 
-/*estilização dos programas no desktop*/
 .internet {
     display: flex;
     flex-direction: column;
@@ -363,7 +361,36 @@ body {
     cursor: default;
 }
 
-/* Estilos das janelas Windows XP */
+.cmd {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    padding: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+.cmd img {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    right: 20px;
+}
+
+.cmd span {
+    font-size: 5px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    text-shadow: 1px 1px 2px black;
+    position: relative;
+    right: 20px;
+    user-select: none;
+    cursor: default;
+}
+
 .janela-xp {
     font-family: 'Tahoma', 'Segoe UI', sans-serif;
     font-size: 11px;
@@ -407,7 +434,6 @@ body {
     box-shadow: inset 0 0 1px rgba(0,0,0,0.5);
 }
 
-/* Botão Minimizar */
 .janela-xp .botao-minimizar {
     background: radial-gradient(circle at 30% 30%, #4ba0ff, #0054ce);
 }
@@ -425,7 +451,6 @@ body {
     bottom: 4px;
 }
 
-/* Botão Maximizar */
 .janela-xp .botao-maximizar {
     background: radial-gradient(circle at 30% 30%, #4ba0ff, #0054ce);
 }
@@ -443,7 +468,6 @@ body {
     position: absolute;
 }
 
-/* Botão Fechar */
 .janela-xp .botao-fechar {
     background: radial-gradient(circle at 30% 30%, #ff6b68, #c44450);
 }
@@ -467,4 +491,58 @@ body {
 
 .janela-xp .botao-fechar::after {
     transform: rotate(-45deg);
+}
+
+/* ── Taskbar Items ── */
+.taskbar-items {
+    position: absolute;
+    left: 52px;
+    right: 48px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    overflow: hidden;
+}
+
+.taskbar-item {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    height: 13px;
+    max-width: 110px;
+    padding: 0 6px;
+    background: linear-gradient(to bottom, #3c8df5, #1a6ae8 45%, #1560d8 55%, #1e78f0);
+    border: 1px outset rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    color: white;
+    font-family: 'Tahoma', 'Segoe UI', sans-serif;
+    font-size: 6px;
+    cursor: pointer;
+    flex-shrink: 1;
+    min-width: 0;
+    white-space: nowrap;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.taskbar-item:hover {
+    background: linear-gradient(to bottom, #4a9aff, #2878f0 45%, #2070e8 55%, #2a88ff);
+}
+
+.taskbar-item.pressed {
+    background: linear-gradient(to bottom, #1a4aa0, #153a80 45%, #102e70 55%, #1a4498);
+    border: 1px inset rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.taskbar-item-icon {
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+}
+
+.taskbar-item-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
 }

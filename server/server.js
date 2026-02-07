@@ -1,11 +1,9 @@
-// Express server for guestbook API
 import express from 'express';
 import cors from 'cors';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Middleware
 app.use(cors({
   origin: process.env.NODE_ENV === 'production'
     ? 'https://ldmrqs.com'
@@ -14,20 +12,16 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// Store last submission time per IP for rate limiting
 const rateLimitMap = new Map();
 
-// Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
-// Guestbook endpoint
 app.post('/api/guestbook', async (req, res) => {
   const { message } = req.body;
   const clientIP = req.ip;
 
-  // Rate limiting (30 seconds)
   const now = Date.now();
   const lastSubmission = rateLimitMap.get(clientIP) || 0;
   if (now - lastSubmission < 30000) {
@@ -37,7 +31,6 @@ app.post('/api/guestbook', async (req, res) => {
     });
   }
 
-  // Input validation
   if (!message || typeof message !== 'string') {
     return res.status(400).json({ error: '❌ Write something before saving!' });
   }

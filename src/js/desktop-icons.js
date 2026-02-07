@@ -1,19 +1,23 @@
-import { criarJanela } from './windows.js';
+import { criarJanela, removeFromTaskbar } from './windows.js';
 import { gerarIPFalso, salvarAutografo } from './guestbook.js';
 import { abrirDoom } from './doom.js';
 import { abrirPaint } from './paint.js';
+import { abrirWinamp } from './winamp.js';
+import { abrirTerminal } from './terminal.js';
 
 export function initDesktopIcons(iframeDoc) {
     const internetExplorer = iframeDoc.querySelector('.internet');
     const blocoDeNotas = iframeDoc.querySelector('.blocodenotas');
     const paint = iframeDoc.querySelector('.paint');
+    const winamp = iframeDoc.querySelector('.winamp');
     const lixeira = iframeDoc.querySelector('.lixeira');
+    const cmd = iframeDoc.querySelector('.cmd');
     const botaoIniciar = iframeDoc.querySelector('.botão-iniciar');
 
     if (internetExplorer) {
         internetExplorer.addEventListener('dblclick', (e) => {
             e.stopPropagation();
-            criarJanela(iframeDoc, 'Internet Explorer - larissa\'s retro cv', '/resume/', 510, 400, true);
+            criarJanela(iframeDoc, 'Internet Explorer - ldmrqs website', '/resume/', 510, 400, true);
         });
     }
 
@@ -73,7 +77,6 @@ c'mon, fren, leave your mark!
                 </div>
             `, 450, 300);
 
-            // Attach event listeners programmatically instead of onclick
             setTimeout(() => {
                 const botaoSalvar = iframeDoc.getElementById('botaoSalvar');
                 if (botaoSalvar) {
@@ -97,6 +100,13 @@ c'mon, fren, leave your mark!
         paint.addEventListener('dblclick', (e) => {
             e.stopPropagation();
             abrirPaint(iframeDoc);
+        });
+    }
+
+    if (winamp) {
+        winamp.addEventListener('dblclick', (e) => {
+            e.stopPropagation();
+            abrirWinamp(iframeDoc);
         });
     }
 
@@ -135,9 +145,15 @@ c'mon, fren, leave your mark!
         });
     }
 
+    if (cmd) {
+        cmd.addEventListener('dblclick', (e) => {
+            e.stopPropagation();
+            abrirTerminal(iframeDoc);
+        });
+    }
+
     if (botaoIniciar) {
         botaoIniciar.addEventListener('click', () => {
-            new Audio('/sounds/xp-error.mp3').play();
             criarJanela(iframeDoc, 'copyright', `
                 <div style="
                     display: flex;
@@ -193,11 +209,15 @@ c'mon, fren, leave your mark!
                 </div>
             `, 320, 120);
 
+            new Audio('/sounds/xp-error.mp3').play();
+
             setTimeout(() => {
                 const okBtn = iframeDoc.getElementById('xp-error-ok');
                 if (okBtn) {
                     okBtn.addEventListener('click', () => {
-                        okBtn.closest('.janela').remove();
+                        const janela = okBtn.closest('.janela');
+                        removeFromTaskbar(janela);
+                        janela.remove();
                     });
                 }
             }, 50);

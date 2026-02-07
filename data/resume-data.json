@@ -5,11 +5,11 @@
     "title": "infrastructure engineer @thoughtworks",
     "location": "brazil",
     "status": "ONLINE",
-    "bio": "hello, fren. i'm larissa, i'm an infra engineer based in brasil. currently merging my infra skills with AI so engineers won't be paged at 3am. i want to make the internet fun again.",
-    "funBio": "i'm a multi-instrumentalist, horror nerd, gamer, bookworm and take care of a small zoo.",
+    "bio": "hello, fren. my name's larissa. i'm 24 years old. i'm an infrastructure engineer who's merging infra skills with ai and ml. i'm based in brazil, more specifically, porto alegre, rs.",
+    "funBio": "i'm passionated about music, i play guitar, acoustic guitar, ukulele, piano-ish and ocarina. though i'm not a zelda fan. i like singing too. i'm a huge gamer, i love resident evil, silent hill, tekken, mortal kombat and red dead redemption. my favorite artists are twenty one pilots, linkin park, fall out boy, paramore, the smiths and mac demarco. i'm a proud mom of 2 boy cats. my favorite author is isaac asimov, i'm obsessed with robots. if you haven't noticed, i'm also a big horror fan and retro tech enthusiast.",
     "aboutSite": "this website is my love letter to my first contact with a computer. windows xp was my first ever OS in a huge white-beige computer, where I used to watch a lot of youtube videos related to naruto and games, play games on clickgames.com.br & habbo. the internet was my first safe space, and i miss it dearly. i'm a sucker for retro tech, not only computers but anything retro related. camrecorders, digital cams, old microphones, guitars, you name it.",
     "tagline": "hello, fren.",
-    "welcomeMessage": "my name is larissa and i just want to make the internet fun again."
+    "welcomeMessage": "no matter where you are, eveyone is always connected."
   },
 
   "interests": [
@@ -147,7 +147,7 @@
       "url": "https://github.com/ldmrqs/CVWinXP",
       "description": "the very site you're browsing right now!",
       "details": "a nostalgic trip back to the early 2000s web",
-      "tech": "HTML, CSS, JavaScript"
+      "tech": "HTML, CSS, JavaScript, Vite, Node.js, Express"
     },
     {
       "name": "you will like this",
@@ -177,6 +177,6 @@
 
   "site": {
     "fullScreenUrl": "https://resume.ldmrqs.com",
-    "copyright": "2001-2025 larissa's retro cv"
+    "copyright": "2001-2025 ldmrqs"
   }
 }

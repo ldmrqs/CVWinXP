@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>retro cv</title>
+    <link rel="icon" type="image/png" href="/site-logo.png">
+    <title>ldmrqs</title>
     <link rel="stylesheet" href="/src/css/pcretro.css">
 
-    <!-- Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" 
+    <meta http-equiv="Content-Security-Policy"
           content="default-src 'self'; 
                    script-src 'self' https://js-dos.com https://archive.org 'unsafe-inline'; 
                    style-src 'self' https://js-dos.com 'unsafe-inline'; 
@@ -15,8 +15,7 @@
                    connect-src 'self' http://localhost:3001 https://ldmrqs.com ws://localhost:5173; 
                    frame-src 'self' https://archive.org;">
 
-    <!-- js-dos with SRI -->
-    <script src="https://js-dos.com/v7/build/js-dos.js" 
+    <script src="https://js-dos.com/v7/build/js-dos.js"
             crossorigin="anonymous"></script>
     <link href="https://js-dos.com/v7/build/js-dos.css" 
           rel="stylesheet" 
@@ -24,7 +23,6 @@
 </head>
 
 <body>
-    <!-- Aviso para mobile/tela pequena -->
     <div class="mobile-warning">
         <div class="mobile-warning-content">
             <p style="font-size: 40px; margin-bottom: 10px;">🖥️</p>
@@ -34,18 +32,17 @@
         </div>
     </div>
 
-    <!--estrutura da carcaça do monitor com as scalines pra dar efeito do crt da tela-->
     <div class="monitor">
         <div class="tela">
             <div class="scanlines">
                 <div class="rolling-scanline">
                 </div>
-                <div class="vidro"> <!--adição do arquivo que eu estou construindo o windows xp-->
+                <div class="vidro">
                     <iframe src="windowsxp.html" 
                             width="100%" 
                             height="100%" 
                             frameborder="0"
-                            sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
+                            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
                 </div>
                 <div>
             </div>
@@ -83,7 +80,7 @@
     </div>
     <div class="basemonitor">
     </div>
-    <div class="gabinete"> <!---começo da construção do gabinete-->
+    <div class="gabinete">
         <img src="/images/monitor/adesivoWINXP.png" id="stickerWINXP"> 
         <img src="/images/monitor/inteladesivo.png" alt="Adesivo da Intel" id="stickerintel">
         <div class="sticky-note">
