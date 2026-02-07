@@ -39,7 +39,7 @@ The wallpaper is a tribute to one of my favorite bands, and the overall design i
 | Build Tool | Vite |
 | Backend | Node.js, Express |
 | Email | EmailJS |
-| Deployment | Hosted at [cv.ldmrqs.com](https://cv.ldmrqs.com) |
+| Deployment | Hosted at [ldmrqs.com](https://ldmrqs.com) |
 
 ---
 
