@@ -185,9 +185,9 @@ h3 {
             right: 130px;
             width: 5px;
             height: 5px;
-            background: greenyellow;
+            background: #333;
             border-radius: 50%;
-            box-shadow: 0 0 20px 5px #00ff00;
+            box-shadow: none;
             align-items: center;
             justify-content: center;
 }
@@ -351,9 +351,9 @@ h3 {
     left: 12px;
     width: 5px;
     height: 5px;
-    background: greenyellow;
+    background: #333;
     border-radius: 50%;
-    box-shadow: 0 0 20px 5px #00ff00;
+    box-shadow: none;
     align-items: center;
     justify-content: center;
 }
