@@ -154,6 +154,7 @@ function initTerminal(iframeDoc) {
             '  ping       ping a host',
             '  sudo       try to elevate privileges',
             '  matrix     take the red pill',
+            '  lain       let\'s all love lain',
             '  exit       close the terminal',
             '',
         ]);
