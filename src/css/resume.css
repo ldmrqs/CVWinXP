@@ -83,17 +83,8 @@ a:hover {
     border-color: #8B0000;
 }
 
-/* Home container específico */
-.home-container {
-    display: flex;
-    max-width: 1000px;
-    margin: 0 auto;
-    gap: 10px;
-    padding: 10px;
-}
-
-/* Main container (original) */
-.main-container {
+/* Content containers */
+.home-container, .main-container {
     display: flex;
     max-width: 1000px;
     margin: 0 auto;
@@ -147,11 +138,6 @@ ul li:before {
 
 /* Main content */
 .main-content {
-    flex: 1;
-    min-width: 0;
-}
-
-.home-container .main-content {
     flex: 1;
     min-width: 0;
 }
@@ -377,8 +363,8 @@ ul li:before {
     text-shadow: 0 0 5px #87CEEB;
 }
 
-/* Job entries */
-.job-entry, .education-entry, .volunteer-entry {
+/* Entry cards */
+.entry-card, .job-entry, .education-entry, .volunteer-entry {
     background: #1a1a1a;
     border-left: 3px solid #8B0000;
     padding: 15px;
@@ -386,7 +372,7 @@ ul li:before {
     transition: all 0.3s;
 }
 
-.job-entry:hover, .education-entry:hover, .volunteer-entry:hover {
+.entry-card:hover, .job-entry:hover, .education-entry:hover, .volunteer-entry:hover {
     border-left-color: #87CEEB;
     box-shadow: 0 0 10px rgba(135, 206, 235, 0.3);
 }

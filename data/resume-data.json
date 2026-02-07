@@ -1,0 +1,166 @@
+{
+  "personal": {
+    "name": "larissa d. marques",
+    "shortName": "larissa",
+    "title": "cloud infrastructure engineer",
+    "location": "brazil",
+    "status": "ONLINE",
+    "bio": "my name's larissa d. marques. i'm a cloud infrastructure engineer based at brazil who just wants to make the internet fun again, keep systems reliable, scalable and observable.",
+    "funBio": "outside tech, i'm a multi-instrumentalist, horror nerd, gamer, bookworm and take care of a small zoo.",
+    "tagline": "hello, fren.",
+    "welcomeMessage": "my name is larissa and i just want to make the internet fun again."
+  },
+
+  "interests": [
+    "anything horror related",
+    "music",
+    "tech",
+    "games",
+    "my pets (5 dogs, 2 cats)"
+  ],
+
+  "nowPlaying": [
+    "Evanescence - Bring Me To Life",
+    "Linkin Park - In The End",
+    "Fall out Boy - Thnks fr the mmrs",
+    "Paramore - Misery Business"
+  ],
+
+  "stats": {
+    "visitors": "031337",
+    "friends": "666",
+    "comments": "13",
+    "lastLogin": "today"
+  },
+
+  "skills": [
+    {
+      "category": "infrastructure, cloud & observability",
+      "percentage": 90,
+      "tools": "AWS, Kubernetes, Bash, Grafana, Datadog, Prometheus, Opsgenie, Logz, Amplitude, Dynatrace, GIT, Terraform"
+    },
+    {
+      "category": "programming",
+      "percentage": 80,
+      "tools": "Python, JavaScript, HTML/CSS, Shell Scripting, SQL"
+    },
+    {
+      "category": "log management tools, API & project management tools",
+      "percentage": 60,
+      "tools": "Postman, Kibana, Jira, ServiceNOW, Zendesk"
+    },
+    {
+      "category": "languages",
+      "items": [
+        { "name": "Portuguese (Native), English (Fluent)", "percentage": 100 },
+        { "name": "Italian & Spanish (Learning)", "percentage": 40 }
+      ]
+    }
+  ],
+
+  "experience": {
+    "work": [
+      {
+        "title": "infrastructure engineer",
+        "company": "thoughtworks",
+        "period": "2025 - present",
+        "responsibilities": [
+          "troubleshot infrastructure issues in cloud environments, with a focus on high availability, scalability, and system performance.",
+          "managed and maintained core AWS resources including EC2, S3, IAM, and CloudWatch.",
+          "maintained Terraform codebase to support environment provisioning, automation, and version-controlled infrastructure changes.",
+          "operated and optimized Kubernetes clusters, resolving issues with Pods, Nodes, and Services.",
+          "improved system observability using Datadog, and Dynatrace, proactively monitoring metrics and alerts.",
+          "implemented CI/CD pipelines using GitLab, automating deployment processes and reducing time to production.",
+          "collaborated with cross-functional teams to design and implement infrastructure solutions that meet business requirements."
+        ]
+      },
+      {
+        "title": "support engineer intern",
+        "company": "e-Core",
+        "period": "2023 - 2025",
+        "responsibilities": [
+          "troubleshot and optimized Kubernetes clusters by monitoring Pods, Nodes, and Containers using Bash.",
+          "managed AWS EC2 instances and Auto Scaling Groups.",
+          "utilized Postman & Databricks for searching, editing, and updating data.",
+          "monitored system performance using Datadog and Grafana.",
+          "triaged and resolved alerts using Jira and Opsgenie, escalating critical issues to development teams.",
+          "created internal knowledge base articles to increase the team's procedures.",
+          "utilized Logz.io & Amplitude to analyze user logs and behavior on the client's service."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "title": "systems analysis and software development",
+        "institution": "universidade do vale do rio dos sinos (unisinos)",
+        "period": "2022 - 2025",
+        "details": ["bachelor's degree"]
+      }
+    ],
+    "volunteer": [
+      {
+        "title": "AI engineer - AIOps DAMO team",
+        "organization": "thoughtworks",
+        "period": "present",
+        "responsibilities": [
+          "contributed to the development of internal AIOps initiatives aimed at enhancing observability automation.",
+          "designed intelligent troubleshooting workflows using MCP to guide LLMs through trace analysis, logs & metrics.",
+          "prompted and refined AI agents to automate investigations, improve reliability, reduce manual analysis, support autonomous operations and, extract meaningful patterns from distributed system events."
+        ]
+      },
+      {
+        "title": "english conversation champion - coffee and cake talks project",
+        "organization": "thoughtworks",
+        "period": "present",
+        "responsibilities": [
+          "i volunteer as a champion for the coffee and cake talks project, a company-wide initiative to support LATAM colleagues in developing english conversation skills and building confidence in spoken communication."
+        ]
+      }
+    ],
+    "certifications": [
+      "AWS Certified AI Practitioner (AIF-C01) (In Progress)",
+      "Amazon AWS Cloud Practitioner (CLF-C01) (In Progress)",
+      "Dynatrace Associate (In Progress)",
+      "Generative AI Leader (In Progress)"
+    ]
+  },
+
+  "projects": [
+    {
+      "name": "Windows XP Portfolio",
+      "url": "https://github.com/ldmrqs/CVWinXP",
+      "description": "the very site you're browsing right now!",
+      "details": "a nostalgic trip back to the early 2000s web",
+      "tech": "HTML, CSS, JavaScript"
+    },
+    {
+      "name": "you will like this",
+      "url": "https://github.com/ldmrqs/dictionary",
+      "description": "an AI experiental project where an AI bot gives you music recommendations.",
+      "tech": "aws bedrock, docker, terraform, fastAPI, pydantic"
+    },
+    {
+      "name": "Tech Dictionary",
+      "url": "https://github.com/ldmrqs/dictionary",
+      "description": "I was tired of having to read a lot of different content on the internet to learn a new language, so I decided to create a simple, straightforward approach to my problem: a Dictionary for study and project purposes.",
+      "tech": "markdown"
+    }
+  ],
+
+  "contact": {
+    "email": "contact@ldrmqs.com",
+    "linkedin": {
+      "url": "https://www.linkedin.com/in/ldmrqs/",
+      "handle": "@ldmrqs"
+    },
+    "github": {
+      "url": "https://github.com/ldmrqs",
+      "handle": "@ldmrqs"
+    }
+  },
+
+  "site": {
+    "fullScreenUrl": "https://resume.ldmrqs.com",
+    "copyright": "2001-2025 larissa's retro cv"
+  }
+}
